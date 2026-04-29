@@ -1,5 +1,64 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Wed, 29 Apr 2026 09:07:21 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity入门】Camera摄像机相关</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91Camera-she-xiang-ji-xiang-guan.html</link><description># Camera摄像机相关
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Wed, 29 Apr 2026 09:12:52 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity入门】物理系统碰撞检测</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-wu-li-xi-tong-peng-zhuang-jian-ce.html</link><description># 物理系统碰撞检测
+物理帧更新后检测物理碰撞触发相关函数 然后再执行逻辑帧更新
+## 碰撞检测相关
+### 碰撞触发接触（参数是碰自己的碰撞体）
+```c#
+private void OnCollisionEnter(Collision collision)
+{
+    //碰撞器
+    collision.collider
+    //对象
+    collision.gameObject
+    //位置
+    collision.transform
+    碰撞点数
+    collision.contactCount
+    碰撞点的坐标
+    ContactPoint[] pos = collision.contacts;
+    print(this.gameObject.name + '被' + collision.gameObject.name + '撞到了');
+}
+```
+### 一直接触 有摩擦力
+```c#
+private void OnCollisionStay(Collision collision)
+{
+    print(this.gameObject.name + '和' + collision.gameObject.name + '一直接触');
+}
+```
+### 退出接触
+```c#
+private void OnCollisionExit(Collision collision)
+{
+    print(this.gameObject.name + '被' + collision.gameObject.name + '结束碰撞');
+}
+```
+
+## 触发器相关
+### 开始触碰触发
+```c#
+private void OnTriggerEnter(Collider other)
+{
+    print(this.gameObject.name + '被' + other.gameObject.name + '接触到了');
+}
+```
+### 重叠触发
+```c#
+private void OnTriggerStay(Collider other)
+{
+    print(this.gameObject.name + '一直在和' + other.gameObject.name + '重叠');
+}
+```
+### 结束触碰触发
+```c#
+private void OnTriggerExit(Collider other)
+{
+    print(this.gameObject.name + '被' + other.gameObject.name + '结束接触了');
+}
+```
+可以写虚函数来重写
+重写的话写成projected就行了
+unity自动通过反射帮我们调用。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-wu-li-xi-tong-peng-zhuang-jian-ce.html</guid><pubDate>Wed, 29 Apr 2026 09:12:21 +0000</pubDate></item><item><title>【unity入门】Camera摄像机相关</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91Camera-she-xiang-ji-xiang-guan.html</link><description># Camera摄像机相关
 ## 重要静态成员
 如果有两个主摄像机就无法准确得到的是哪个
 ### 获取主摄像机
