@@ -1,0 +1,5 @@
+1.脚本必须继承MonoBehaviour才能挂载在GameObje上
+2.继承了MonoBehaviour的脚本不能new，只能挂载
+3.继承了MonoBehaviour不要写构造函数
+4.一个对象可以挂在同一个继承了MonoBehaviour的脚本
+5.继承了MonoBehaviour的类可以再次被继承

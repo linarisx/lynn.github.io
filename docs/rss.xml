@@ -1,2 +1,136 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Wed, 29 Apr 2026 04:14:51 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Wed, 29 Apr 2026 07:00:29 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity入门】MonoBehaviour中的重要内容</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91MonoBehaviour-zhong-de-zhong-yao-nei-rong.html</link><description># MonoBehaviour中的重要内容
+## 获取依附的GameObject信息
+### 名字
+       print(this.gameObject.name);
+### 位置信息
+       **位置** print(this.transform.position);
+       **角度** print(this.transform.eulerAngles);
+       **缩放** print(this.transform.lossyScale);
+（this.gameObject.transform和this.transform一样）
+### 获取脚本是否激活
+     this.enabled = false;
+### 得到其他脚本对象的信息
+     print(OtherLesson.gameObject.name);
+     print(OtherLesson.transform.position);
+     ......
+
+## 关于获取脚本
+只要能得到场景中其他对象或者其他对象的脚本，就能得到它的所有信息
+## 获得自己同个GameObject的不同脚本 
+只能得单个，不能同个脚本有多个
+获取失败返回空
+### 历史替换
+     Lesson3_Test t = this.GetComponent('Lesson3_Test') as Lesson3_Test;
+     if (t != null)    print(t);
+### 通过Type获得
+     t = this.GetComponent(typeof(Lesson3_Test)) as Lesson3_Test;
+     if (t != null)    print(t);
+### 根据泛型获取
+     t = this.GetComponent&lt;Lesson3_Test&gt;();
+     if (t != null)    print(t);  
+
+### 获得自己多个脚本
+一般不会再同个对象中挂几个相同脚本
+```c#
+     Lesson3[] array = this.GetComponents&lt;Lesson3&gt;();
+     print(array.Length);
+     List&lt;Lesson3&gt; list = new List&lt;Lesson3&gt;();
+     this.GetComponents&lt;Lesson3&gt;(list);
+     print(list.Count);
+```
+  
+### 得到子对象的脚本（默认也会找自己身上有没有该脚本）
+括号参数默认false 检测gameobject子对象不失活的 true失活也会找
+**1.找单个子对象**
+```c#
+     t = this.GetComponentInChildren&lt;Lesson3_Test&gt;(false);
+     print(t);
+```
+ **2.多个子对象**
+```c#
+     Lesson3_Test[] arr = this.GetComponentsInChildren&lt;Lesson3_Test&gt;();
+     print(arr.Length);
+     List&lt;Lesson3_Test&gt; lis = new List&lt;Lesson3_Test&gt;();
+     GetComponentsInChildren&lt;Lesson3_Test&gt;(true, lis);
+     print(lis.Count);
+```
+### 得到父对象的脚本(默认找自己的)
+括号没有参数，如果父对象失活子对象也失活，就没办法执行脚本
+**1.单个父对象**
+```c#
+     t = this.GetComponentInParent&lt;Lesson3_Test&gt;();
+     print(t);
+```
+**2.多个父对象(所有父类都找)**
+```c#
+     arr = this.GetComponentsInParent&lt;Lesson3_Test&gt;();
+     print(arr.Length);
+```
+### 尝试获取单个脚本 找到true
+正常没找到报空 更安全
+```c#
+     Lesson3_Test test;
+     if(this.TryGetComponent&lt;Lesson3_Test&gt;(out test) {  }
+```。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91MonoBehaviour-zhong-de-zhong-yao-nei-rong.html</guid><pubDate>Wed, 29 Apr 2026 06:59:13 +0000</pubDate></item><item><title>【unity入门】脚本的基本规则</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-jiao-ben-de-ji-ben-gui-ze.html</link><description>1.脚本必须继承MonoBehaviour才能挂载在GameObje上
+2.继承了MonoBehaviour的脚本不能new，只能挂载
+3.继承了MonoBehaviour不要写构造函数
+4.一个对象可以挂在同一个继承了MonoBehaviour的脚本
+5.继承了MonoBehaviour的类可以再次被继承。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-jiao-ben-de-ji-ben-gui-ze.html</guid><pubDate>Wed, 29 Apr 2026 06:16:36 +0000</pubDate></item><item><title>【unity入门】生命周期函数</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-sheng-ming-zhou-qi-han-shu.html</link><description># 【unity入门】生命周期函数
+
+## 基本概念
+unity会按顺序执行以下生命周期函数
+`Awake()`
+`OnEnable()`
+`Start()`
+`FixedUpdate()`
+`Update()`
+`LateUpdate()`
+`OnDisable()`
+`OnDestroy()`
+
+
+### Awake和Start的区别
+1.当物体失活，脚本激活时Awake仍然执行，只要对象创建并且脚本激活就会执行
+2.Start必须在物体处于激活状态才会执行
+
+### 物理帧更新`FixedUpdate()`
+可以在ProjectSetting中的Time设置，代表间隔几秒执行一次
+
+### 其他
+只要脚本失活所有函数都不执行
+
+```c#
+private void Awake()
+{
+    print('Awake 该类的对象被创建时');       
+}
+private void OnEnable()
+{
+    print('OnEnable 激活时调用');
+}
+private void Start()
+{
+    print('Start');
+}
+private void FixedUpdate()
+{
+    print('FixedUpdate');
+}
+private void Update()
+{
+    print('Update');
+}
+private void LateUpdate()
+{
+    print('LateUpdate');
+}
+private void OnDisable()
+{
+    print('OnDisable失活');
+}
+private void OnDestroy()
+{
+    print('OnDestroy删除');
+}
+```。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-sheng-ming-zhou-qi-han-shu.html</guid><pubDate>Wed, 29 Apr 2026 06:12:49 +0000</pubDate></item></channel></rss>
