@@ -1,5 +1,24 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Wed, 29 Apr 2026 08:27:50 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity入门】角度和旋转</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-jiao-du-he-xuan-zhuan.html</link><description> # 角度相关
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Wed, 29 Apr 2026 08:32:43 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity入门】缩放和看向</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-suo-fang-he-kan-xiang.html</link><description># 缩放和看向
+## 缩放
+### 相对世界坐标系
+` print(this.transform.lossyScale);`
+### 相对本地（父对象）
+` print(this.transform.localScale);`
+
+ 缩放世界坐标系不能改 只能得
+ 只能改相对父对象的
+` this.transform.localScale = new Vector3(3, 3, 3);`
+
+缩放没有API只能自己写
+`this.transform.localScale += Vector3.one * Time.deltaTime;`
+ 
+## 看向
+一直看向原点 相对于世界坐标系
+` this.transform.LookAt(Vector3.zero);`
+看向一个对象
+` this.transform.LookAt(lookAtObj);`
+。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-suo-fang-he-kan-xiang.html</guid><pubDate>Wed, 29 Apr 2026 08:32:15 +0000</pubDate></item><item><title>【unity入门】角度和旋转</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-jiao-du-he-xuan-zhuan.html</link><description> # 角度相关
 相对世界坐标角度
 `print(this.transform.eulerAngles);`
 相对父对象角度
