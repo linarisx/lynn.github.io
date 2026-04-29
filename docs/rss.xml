@@ -1,5 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Wed, 29 Apr 2026 08:55:43 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity入门】Input输入相关</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91Input-shu-ru-xiang-guan.html</link><description># Input输入相关
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Wed, 29 Apr 2026 08:59:04 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity入门】Screen屏幕相关</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91Screen-ping-mu-xiang-guan.html</link><description># Screen屏幕相关
+## 当前屏幕分辨率 （整个电脑的）
+```c#
+Resolution r = Screen.currentResolution;
+print('当前屏幕分辨率宽：' + r.width + '高：' + r.height);
+```
+
+## 游戏窗口的分辨率
+```c#
+print(Screen.width);
+print(Screen.height);
+```
+
+##屏幕休眠模式
+`Screen.sleepTimeout = SleepTimeout.NeverSleep;`
+
+## 静态方法
+设置分辨率 移动设备不用
+`Screen.SetResolution(1920, 1080, false);//是否全屏`。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91Screen-ping-mu-xiang-guan.html</guid><pubDate>Wed, 29 Apr 2026 08:58:39 +0000</pubDate></item><item><title>【unity入门】Input输入相关</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91Input-shu-ru-xiang-guan.html</link><description># Input输入相关
 ## 鼠标键盘检测输入 
 ```c#
 if (Input.GetMouseButton(0))
