@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Wed, 29 Apr 2026 10:05:23 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity入门】场景切换 游戏退出 光标 随机数 委托</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-chang-jing-qie-huan-%20-you-xi-tui-chu-%20-guang-biao-%20-sui-ji-shu-%20-wei-tuo.html</link><description># 场景切换 游戏退出 光标 随机数 委托
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Wed, 29 Apr 2026 10:13:25 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity入门】场景切换 游戏退出 光标 随机数 委托</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-chang-jing-qie-huan-%20-you-xi-tui-chu-%20-guang-biao-%20-sui-ji-shu-%20-wei-tuo.html</link><description># 场景切换 游戏退出 光标 随机数 委托
 ## 场景切换和游戏退出
 ### 改变场景
 `SceneManager.LoadScene('Scene2');`
@@ -324,7 +324,8 @@ if (Input.GetMouseButton(0))
  print(Input.GetAxis('Mouse Y'));
 ```
 
- GetAxisRaw无小数。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91Input-shu-ru-xiang-guan.html</guid><pubDate>Wed, 29 Apr 2026 08:54:42 +0000</pubDate></item><item><title>【unity入门】屏幕相关</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-ping-mu-xiang-guan.html</link><description>## 世界坐标系转本地坐标系
+ GetAxisRaw无小数。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91Input-shu-ru-xiang-guan.html</guid><pubDate>Wed, 29 Apr 2026 08:54:42 +0000</pubDate></item><item><title>【unity入门】坐标系相关（世界与本地）</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-zuo-biao-xi-xiang-guan-%EF%BC%88-shi-jie-yu-ben-di-%EF%BC%89.html</link><description># 坐标系转换相关（世界与本地）
+## 世界坐标系转本地坐标系
 ### 点的转换
 受缩放影响
 `print('转换后的点' + this.transform.InverseTransformPoint(Vector3.forward));`
@@ -344,7 +345,7 @@ if (Input.GetMouseButton(0))
 不受缩放影响
 `print('本地转世界的方向' + this.transform.TransformDirection(Vector3.forward));`
 受缩放影响
-`print('本地转世界的方向' + this.transform.TransformVector(Vector3.forward));`。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-ping-mu-xiang-guan.html</guid><pubDate>Wed, 29 Apr 2026 08:50:54 +0000</pubDate></item><item><title>【unity入门】Transform父子关系</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91Transform-fu-zi-guan-xi.html</link><description># Transform父子关系
+`print('本地转世界的方向' + this.transform.TransformVector(Vector3.forward));`。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-zuo-biao-xi-xiang-guan-%EF%BC%88-shi-jie-yu-ben-di-%EF%BC%89.html</guid><pubDate>Wed, 29 Apr 2026 08:50:54 +0000</pubDate></item><item><title>【unity入门】Transform父子关系</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91Transform-fu-zi-guan-xi.html</link><description># Transform父子关系
 ## 获取父对象
 获取父对象
 `print(this.transform.parent.name);`
