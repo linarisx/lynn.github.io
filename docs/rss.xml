@@ -1,5 +1,35 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Wed, 29 Apr 2026 08:51:24 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity入门】屏幕相关</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-ping-mu-xiang-guan.html</link><description>## 世界坐标系转本地坐标系
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Wed, 29 Apr 2026 08:55:07 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity入门】Input输入相关</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91Input-shu-ru-xiang-guan.html</link><description>#Input输入相关
+## 鼠标键盘检测输入 
+```c#
+if (Input.GetMouseButton(0))
+ {
+     print('左键长按');
+ }
+ print(Input.mouseScrollDelta * 10);
+
+ if (Input.GetKeyDown(KeyCode.Space))
+ {
+     print('空格按下');
+ }
+ if (Input.GetKey('escape'))
+ {
+     print('esc按下');
+ }
+
+```
+## 通过wasd获取-1~1的值
+```c#
+ print(Input.GetAxis('Horizontal'));
+ print(Input.GetAxis('Vertical'));
+```
+## 通过鼠标移动获取-1~1的值
+```c#
+ print(Input.GetAxis('Mouse X'));
+ print(Input.GetAxis('Mouse Y'));
+```
+
+ GetAxisRaw无小数。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91Input-shu-ru-xiang-guan.html</guid><pubDate>Wed, 29 Apr 2026 08:54:42 +0000</pubDate></item><item><title>【unity入门】屏幕相关</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-ping-mu-xiang-guan.html</link><description>## 世界坐标系转本地坐标系
 ### 点的转换
 受缩放影响
 `print('转换后的点' + this.transform.InverseTransformPoint(Vector3.forward));`
