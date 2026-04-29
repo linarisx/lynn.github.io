@@ -1,5 +1,32 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Wed, 29 Apr 2026 08:14:36 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity入门】位移相关</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-wei-yi-xiang-guan.html</link><description># 位移相关
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Wed, 29 Apr 2026 08:27:50 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity入门】角度和旋转</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-jiao-du-he-xuan-zhuan.html</link><description> # 角度相关
+相对世界坐标角度
+`print(this.transform.eulerAngles);`
+相对父对象角度
+`print(this.transform.localEulerAngles);`
+不能单独改变一个坐标 三个一起
+`this.transform.localEulerAngles = new Vector3(10, 10, 10);`
+
+# 旋转
+第一个参数 旋转的角度
+第二个参数 默认不填围绕自己旋转
+```
+this.transform.Rotate(new Vector3(0, 10, 0) * Time.deltaTime);
+this.transform.Rotate(new Vector3(0, 10, 0) * Time.deltaTime, Space.World);
+```
+
+相对于轴转多少度
+参数一：相对于哪个轴转动
+参数二：角度
+参数三：默认自己坐标系
+`this.transform.Rotate(Vector3.right, 10 * Time.deltaTime);`
+
+相对于某一个点转
+参数一：相对于哪一个点转圈圈
+参数二：相对于那一个点的 哪一个轴转圈圈
+参数三：转的度数 旋转速度*时间
+`this.transform.RotateAround(Vector3.zero, Vector3.right, 10 * Time.deltaTime);`
+。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-jiao-du-he-xuan-zhuan.html</guid><pubDate>Wed, 29 Apr 2026 08:27:23 +0000</pubDate></item><item><title>【unity入门】位移相关</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-wei-yi-xiang-guan.html</link><description># 位移相关
 ## Vector3基础
 三维坐标的一个点，向量
 ### 申明一个点
