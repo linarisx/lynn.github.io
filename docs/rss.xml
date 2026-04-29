@@ -1,5 +1,36 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Wed, 29 Apr 2026 08:59:04 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity入门】Screen屏幕相关</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91Screen-ping-mu-xiang-guan.html</link><description># Screen屏幕相关
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Wed, 29 Apr 2026 09:07:21 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity入门】Camera摄像机相关</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91Camera-she-xiang-ji-xiang-guan.html</link><description># Camera摄像机相关
+## 重要静态成员
+如果有两个主摄像机就无法准确得到的是哪个
+### 获取主摄像机
+`print(Camera.main.name);`
+
+### 取摄像机数量
+`print(Camera.allCamerasCount);
+`
+### 得到所有摄像机
+```c#
+Camera[] arr = Camera.allCameras;
+print(arr.Length);
+
+```
+### 渲染相关委托
+摄像机剔除前处理的委托函数
+`Camera.onPreCull += (c) =&gt; { };`
+摄像机渲染前处理的委托
+`Camera.onPreRender += (c) =&gt; { };`
+摄像机渲染后处理的委托
+`Camera.onPostRender += (c) =&gt; { };`
+
+## 重要成员
+获取界面上的参数
+### 设置深度
+`Camera.main.depth = 10;`
+
+### 世界坐标转屏幕坐标
+z轴是物体与摄像机的距离
+做血条
+`Vector3 v = Camera.main.WorldToScreenPoint(this.transform.position);`。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91Camera-she-xiang-ji-xiang-guan.html</guid><pubDate>Wed, 29 Apr 2026 09:06:55 +0000</pubDate></item><item><title>【unity入门】Screen屏幕相关</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91Screen-ping-mu-xiang-guan.html</link><description># Screen屏幕相关
 ## 当前屏幕分辨率 （整个电脑的）
 ```c#
 Resolution r = Screen.currentResolution;
