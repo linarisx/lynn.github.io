@@ -1,5 +1,45 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Wed, 29 Apr 2026 07:26:00 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity入门】最小单位GameObject</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-zui-xiao-dan-wei-GameObject.html</link><description># 最小单位GameObject
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Wed, 29 Apr 2026 07:58:01 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity入门】时间相关Time</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-shi-jian-xiang-guan-Time.html</link><description># 时间相关Time
+## 时间缩放比例
+时间暂停
+`Time.timeScale = 0;`
+恢复正常
+`Time.timeScale = 1;`
+两倍速
+`Time.timeScale = 2;`
+
+# 帧间隔时间
+一般用来位移
+路程 = 时间 * 速度
+
+最近一帧，用了多少时间
+### 受Scale影响
+`print('受Scale影响'+Time.deltaTime);`
+### 不受Scale影响
+`print('不受Scale影响' + Time.unscaledDeltaTime);`
+
+为什么时间速度都要乘Time.deltaTime？（当前帧移动距离=每秒速度*这一帧时间）
+因为高帧设备帧数多，每一帧时间短距离小（10*0.016 = 0.16m）一帧移动的距离
+低帧设备帧数少，每一帧时间长距离大（10*0.033 = 0.33m）一帧移动的距离
+这样相同时间移动的距离就是一样的
+
+
+# 游戏开始到现在的时间
+一般用在单机游戏 计时
+
+### 受Scale影响
+`print('受Scale影响' + Time.time);`
+不受Scale影响
+`print('受Scale影响' + Time.unscaledTime);`
+
+### 从开始到现在游戏跑了多少帧
+`print(Time.frameCount);`
+
+# 物理帧间隔时间
+### 受Scale影响
+print(Time.fixedDeltaTime);
+### 不受Scale影响
+print(Time.fixedUnscaledDeltaTime);。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-shi-jian-xiang-guan-Time.html</guid><pubDate>Wed, 29 Apr 2026 07:57:32 +0000</pubDate></item><item><title>【unity入门】最小单位GameObject</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-zui-xiao-dan-wei-GameObject.html</link><description># 最小单位GameObject
 ## GameObject的成员变量
 ### 名字
 `print(this.gameObject.name);`
