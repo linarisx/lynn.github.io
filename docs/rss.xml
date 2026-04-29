@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Wed, 29 Apr 2026 07:58:01 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity入门】时间相关Time</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-shi-jian-xiang-guan-Time.html</link><description># 时间相关Time
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Wed, 29 Apr 2026 07:59:48 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity入门】时间相关Time</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-shi-jian-xiang-guan-Time.html</link><description># 时间相关Time
 ## 时间缩放比例
 时间暂停
 `Time.timeScale = 0;`
@@ -18,11 +18,11 @@
 ### 不受Scale影响
 `print('不受Scale影响' + Time.unscaledDeltaTime);`
 
-为什么时间速度都要乘Time.deltaTime？（当前帧移动距离=每秒速度*这一帧时间）
-因为高帧设备帧数多，每一帧时间短距离小（10*0.016 = 0.16m）一帧移动的距离
-低帧设备帧数少，每一帧时间长距离大（10*0.033 = 0.33m）一帧移动的距离
+**为什么移动时都要乘Time.deltaTime？**
+高帧设备帧数多，每一帧时间短距离小（一帧移动的距离：10 × 0.016 = 0.16m）
+低帧设备帧数少，每一帧时间长距离大（一帧移动的距离：10 × 0.033 = 0.33m）
 这样相同时间移动的距离就是一样的
-
+（当前帧移动距离=每秒速度*这一帧时间）
 
 # 游戏开始到现在的时间
 一般用在单机游戏 计时
