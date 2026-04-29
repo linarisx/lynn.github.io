@@ -1,5 +1,75 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Wed, 29 Apr 2026 09:12:52 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity入门】物理系统碰撞检测</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-wu-li-xi-tong-peng-zhuang-jian-ce.html</link><description># 物理系统碰撞检测
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Wed, 29 Apr 2026 09:24:32 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity入门】物理系统刚体加力</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-wu-li-xi-tong-gang-ti-jia-li.html</link><description># 物理系统刚体加力
+`Rigidbody rigidBody;`
+### 获取刚体组件
+` rigidBody = GetComponent&lt;Rigidbody&gt;();`
+### 增加力
+**1.相对世界坐标系 第二个参数：力的模式**
+```c#
+rigidBody.AddForce(Vector3.forward * 10);
+rigidBody.AddForce(this.transform.forward * 10); ;//相对自己坐标系
+```
+
+**2.相对本地坐标系 第二个参数：力的模式**
+` rigidBody.AddRelativeForce(Vector3.forward * 10);`
+
+### 扭矩的力
+**1.相对世界坐标系 第二个参数：力的模式**
+`rigidBody.AddTorque(Vector3.up * 10);`
+**2.相对本地坐标系 第二个参数：力的模式**
+`rigidBody.AddRelativeTorque(Vector3.up * 10);`
+
+### 改变速度
+相对世界坐标系
+`rigidBody.velocity = Vector3.forward * 5;`
+
+### 爆炸效果
+(力的大小，爆炸中心，爆炸半径)
+`rigidBody.AddExplosionForce(100, Vector3.zero, 10);`
+
+## 力的模式
+动量定理
+Ft = mv
+v = Ft / m
+
+### Force 持续的力
+与时间 质量有关
+v = 10 * 0.02 / 2 = 0.1m / s
+每物理帧移动：0.1m / s * 0.02 = 0.002m
+
+###Acceleration 持续加速度
+忽略质量(默认m = 1)
+v = (0, 0, 10) * 0.02 / 1 = 0.2m / s
+每物理帧移动：0.2m / s * 0.02 = 0.004m
+
+### Impulse 瞬间的力
+忽略时间(默认t = 1)
+v = 10 * 1 / 2 = 5m / s
+每物理帧移动：5m / s * 0.02 = 0.1m
+
+### VelocityChange 瞬时速度
+忽略质量 时间
+v = 10 * 1 / 1 = 10m / s
+每物理帧移动：10m / s * 0.02 = 0.2m
+
+```c#
+rigidBody.AddForce(Vector3.forward * 10, ForceMode.Acceleration);
+rigidBody.AddForce(Vector3.forward * 10, ForceMode.Force);
+rigidBody.AddForce(Vector3.forward * 10, ForceMode.Impulse);
+rigidBody.AddForce(Vector3.forward * 10, ForceMode.VelocityChange);
+```
+
+unity自带组件Constant Force控制物体
+控制力和扭矩力，位移和旋转
+constant force 自动加刚体
+
+## 刚体的休眠
+```c#
+if (rigidBody.IsSleeping())
+{
+ rigidBody.WakeUp();
+}
+```。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-wu-li-xi-tong-gang-ti-jia-li.html</guid><pubDate>Wed, 29 Apr 2026 09:24:06 +0000</pubDate></item><item><title>【unity入门】物理系统碰撞检测</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-wu-li-xi-tong-peng-zhuang-jian-ce.html</link><description># 物理系统碰撞检测
 物理帧更新后检测物理碰撞触发相关函数 然后再执行逻辑帧更新
 ## 碰撞检测相关
 ### 碰撞触发接触（参数是碰自己的碰撞体）
