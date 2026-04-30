@@ -75,6 +75,7 @@ print(o.gameObject.name);
 
 ## 克隆对象
 对象继承MonoBehaviour，不用写GameObject，这个方法在Object里
+（克隆对象 位置 旋转量）
 `GameObject obj5 = GameObject.Instantiate(myObject);`
 之后再来操作这个克隆对象
 
