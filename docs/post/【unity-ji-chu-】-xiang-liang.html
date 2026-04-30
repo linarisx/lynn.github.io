@@ -50,8 +50,8 @@ AB单位向量
 
 # 向量的加减乘除
 ## 概念
-向量 + 向量 = 新向量（首尾相连连首尾）
-位置 + 向量 = 一个新的位置（平移位置）
+向量 + 向量 = 向量（首尾相连连首尾）
+位置 + 向量 = 位置（平移位置）
 
 位置 - 位置 = 向量（终点 - 起点）
 向量 - 向量 = 向量（头连头，尾指尾）
@@ -62,7 +62,30 @@ AB单位向量
 ```c#
 this.transform.localScale *= 2;
 this.transform.localScale /= 2;
-```。">
+```
+
+# 向量的点乘
+## 基本概念
+向量点乘 ： 另一个向量在该向量上的投影长度
+公式：A·B = Xa * Xb + Ya * Yb + Za * Zb
+
+点乘结果 > 0 夹角为锐角
+点乘结果 = 0 夹角为直角
+点乘结果 < 0 夹角为钝角
+可以通过点乘结果来判断敌人是否在玩家前方
+```c#
+ result = Vector3.Dot(this.transform.forward, (target.position - this.transform.position));
+ if(result >= 0)
+ {
+     print('敌人在前方');
+ }
+ else
+ {
+     print('敌人在后方');
+ }
+
+```
+。">
 <meta property="og:title" content="【unity基础】向量">
 <meta property="og:description" content="# 向量模长和单位向量
 ## 基础概念
@@ -104,8 +127,8 @@ AB单位向量
 
 # 向量的加减乘除
 ## 概念
-向量 + 向量 = 新向量（首尾相连连首尾）
-位置 + 向量 = 一个新的位置（平移位置）
+向量 + 向量 = 向量（首尾相连连首尾）
+位置 + 向量 = 位置（平移位置）
 
 位置 - 位置 = 向量（终点 - 起点）
 向量 - 向量 = 向量（头连头，尾指尾）
@@ -116,7 +139,30 @@ AB单位向量
 ```c#
 this.transform.localScale *= 2;
 this.transform.localScale /= 2;
-```。">
+```
+
+# 向量的点乘
+## 基本概念
+向量点乘 ： 另一个向量在该向量上的投影长度
+公式：A·B = Xa * Xb + Ya * Yb + Za * Zb
+
+点乘结果 > 0 夹角为锐角
+点乘结果 = 0 夹角为直角
+点乘结果 < 0 夹角为钝角
+可以通过点乘结果来判断敌人是否在玩家前方
+```c#
+ result = Vector3.Dot(this.transform.forward, (target.position - this.transform.position));
+ if(result >= 0)
+ {
+     print('敌人在前方');
+ }
+ else
+ {
+     print('敌人在后方');
+ }
+
+```
+。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-xiang-liang.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/206855738?v=4&size=64">
@@ -216,14 +262,31 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <code class="notranslate">print(AB / AB.magnitude);</code></p>
 <h1>向量的加减乘除</h1>
 <h2>概念</h2>
-<p>向量 + 向量 = 新向量（首尾相连连首尾）<br>
-位置 + 向量 = 一个新的位置（平移位置）</p>
+<p>向量 + 向量 = 向量（首尾相连连首尾）<br>
+位置 + 向量 = 位置（平移位置）</p>
 <p>位置 - 位置 = 向量（终点 - 起点）<br>
 向量 - 向量 = 向量（头连头，尾指尾）<br>
 位置 - 向量 = 位置（平移位置）</p>
 <p>向量乘除：用于模长的放大缩小</p>
 <div class="highlight highlight-source-cs"><pre class="notranslate"><span class="pl-k">this</span><span class="pl-kos">.</span><span class="pl-s1">transform</span><span class="pl-kos">.</span><span class="pl-s1">localScale</span> <span class="pl-c1">*=</span> <span class="pl-c1">2</span><span class="pl-kos">;</span>
-<span class="pl-k">this</span><span class="pl-kos">.</span><span class="pl-s1">transform</span><span class="pl-kos">.</span><span class="pl-s1">localScale</span> <span class="pl-c1">/=</span> <span class="pl-c1">2</span><span class="pl-kos">;</span></pre></div></div>
+<span class="pl-k">this</span><span class="pl-kos">.</span><span class="pl-s1">transform</span><span class="pl-kos">.</span><span class="pl-s1">localScale</span> <span class="pl-c1">/=</span> <span class="pl-c1">2</span><span class="pl-kos">;</span></pre></div>
+<h1>向量的点乘</h1>
+<h2>基本概念</h2>
+<p>向量点乘 ： 另一个向量在该向量上的投影长度<br>
+公式：A·B = Xa * Xb + Ya * Yb + Za * Zb</p>
+<p>点乘结果 &gt; 0 夹角为锐角<br>
+点乘结果 = 0 夹角为直角<br>
+点乘结果 &lt; 0 夹角为钝角<br>
+可以通过点乘结果来判断敌人是否在玩家前方</p>
+<div class="highlight highlight-source-cs"><pre class="notranslate"> <span class="pl-s1">result</span> <span class="pl-c1">=</span> <span class="pl-s1">Vector3</span><span class="pl-kos">.</span><span class="pl-en">Dot</span><span class="pl-kos">(</span><span class="pl-k">this</span><span class="pl-kos">.</span><span class="pl-s1">transform</span><span class="pl-kos">.</span><span class="pl-s1">forward</span><span class="pl-kos">,</span> <span class="pl-kos">(</span><span class="pl-s1">target</span><span class="pl-kos">.</span><span class="pl-s1">position</span> <span class="pl-c1">-</span> <span class="pl-k">this</span><span class="pl-kos">.</span><span class="pl-s1">transform</span><span class="pl-kos">.</span><span class="pl-s1">position</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+ <span class="pl-k">if</span><span class="pl-kos">(</span><span class="pl-s1">result</span> <span class="pl-c1">&gt;=</span> <span class="pl-c1">0</span><span class="pl-kos">)</span>
+ <span class="pl-kos">{</span>
+     <span class="pl-s1">print</span><span class="pl-kos">(</span><span class="pl-s">"敌人在前方"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+ <span class="pl-kos">}</span>
+ <span class="pl-k">else</span>
+ <span class="pl-kos">{</span>
+     <span class="pl-s1">print</span><span class="pl-kos">(</span><span class="pl-s">"敌人在后方"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+ <span class="pl-kos">}</span></pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>

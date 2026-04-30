@@ -38,8 +38,8 @@ AB单位向量
 
 # 向量的加减乘除
 ## 概念
-向量 + 向量 = 新向量（首尾相连连首尾）
-位置 + 向量 = 一个新的位置（平移位置）
+向量 + 向量 = 向量（首尾相连连首尾）
+位置 + 向量 = 位置（平移位置）
 
 位置 - 位置 = 向量（终点 - 起点）
 向量 - 向量 = 向量（头连头，尾指尾）
@@ -50,4 +50,26 @@ AB单位向量
 ```c#
 this.transform.localScale *= 2;
 this.transform.localScale /= 2;
+```
+
+# 向量的点乘
+## 基本概念
+向量点乘 ： 另一个向量在该向量上的投影长度
+公式：A·B = Xa * Xb + Ya * Yb + Za * Zb
+
+点乘结果 > 0 夹角为锐角
+点乘结果 = 0 夹角为直角
+点乘结果 < 0 夹角为钝角
+可以通过点乘结果来判断敌人是否在玩家前方
+```c#
+ result = Vector3.Dot(this.transform.forward, (target.position - this.transform.position));
+ if(result >= 0)
+ {
+     print("敌人在前方");
+ }
+ else
+ {
+     print("敌人在后方");
+ }
+
 ```

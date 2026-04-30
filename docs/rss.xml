@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Thu, 30 Apr 2026 07:23:12 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】向量</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-xiang-liang.html</link><description># 向量模长和单位向量
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Thu, 30 Apr 2026 07:31:12 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】向量</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-xiang-liang.html</link><description># 向量模长和单位向量
 ## 基础概念
 
 1. 两点之间得到向量
@@ -39,8 +39,8 @@ AB单位向量
 
 # 向量的加减乘除
 ## 概念
-向量 + 向量 = 新向量（首尾相连连首尾）
-位置 + 向量 = 一个新的位置（平移位置）
+向量 + 向量 = 向量（首尾相连连首尾）
+位置 + 向量 = 位置（平移位置）
 
 位置 - 位置 = 向量（终点 - 起点）
 向量 - 向量 = 向量（头连头，尾指尾）
@@ -51,7 +51,30 @@ AB单位向量
 ```c#
 this.transform.localScale *= 2;
 this.transform.localScale /= 2;
-```。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-xiang-liang.html</guid><pubDate>Thu, 30 Apr 2026 07:10:06 +0000</pubDate></item><item><title>【unity基础】三角函数</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-san-jiao-han-shu.html</link><description># 三角函数
+```
+
+# 向量的点乘
+## 基本概念
+向量点乘 ： 另一个向量在该向量上的投影长度
+公式：A·B = Xa * Xb + Ya * Yb + Za * Zb
+
+点乘结果 &gt; 0 夹角为锐角
+点乘结果 = 0 夹角为直角
+点乘结果 &lt; 0 夹角为钝角
+可以通过点乘结果来判断敌人是否在玩家前方
+```c#
+ result = Vector3.Dot(this.transform.forward, (target.position - this.transform.position));
+ if(result &gt;= 0)
+ {
+     print('敌人在前方');
+ }
+ else
+ {
+     print('敌人在后方');
+ }
+
+```
+。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-xiang-liang.html</guid><pubDate>Thu, 30 Apr 2026 07:10:06 +0000</pubDate></item><item><title>【unity基础】三角函数</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-san-jiao-han-shu.html</link><description># 三角函数
 ## 三角
 ### 角度转弧度
 (30° = π/180° * 30 = π/6) 
