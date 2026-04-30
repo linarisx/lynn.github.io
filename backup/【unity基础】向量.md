@@ -116,3 +116,33 @@ else
  print("B在A左侧");
 }
 ```
+
+# 向量插值运算
+## 基本概念
+让一个位置移动到另一个位置（缓速/匀速）
+result = start + (end-start)*t
+
+和Mathf的区别：
+Mathf.lerp是一个数字(二维)
+vector3.lerp是向量(三位)
+
+## 代码
+### 缓速
+`A.position = Vector3.Lerp(A.position, target.position, Time.deltaTime);`
+
+### 匀速
+当time>=1时，相当于与目标重合
+```c#
+if(nowTarget != target.position)//target改变了就会进这里
+{           
+    nowTarget = target.position;
+    time = 0;
+    startPos = B.position;
+}
+time += Time.deltaTime;
+B.position = Vector3.Lerp(startPos, nowTarget, time);
+```
+
+### 球形差值
+弧形轨迹
+`C.position = Vector3.Slerp(Vector3.right*10, Vector3.forward*10, time*0.1f);`

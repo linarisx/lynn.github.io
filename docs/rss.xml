@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Thu, 30 Apr 2026 07:53:46 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>Debug相关</title><link>https://linarisx.github.io/lynn.github.io/post/Debug-xiang-guan.html</link><description># Debug
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Thu, 30 Apr 2026 08:03:52 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>Debug相关</title><link>https://linarisx.github.io/lynn.github.io/post/Debug-xiang-guan.html</link><description># Debug
 不用继承MonoBehaviour
 
 ## 打印
@@ -131,7 +131,37 @@ else
 {
  print('B在A左侧');
 }
-```。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-xiang-liang.html</guid><pubDate>Thu, 30 Apr 2026 07:10:06 +0000</pubDate></item><item><title>【unity基础】三角函数</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-san-jiao-han-shu.html</link><description># 三角函数
+```
+
+# 向量插值运算
+## 基本概念
+让一个位置移动到另一个位置（缓速/匀速）
+result = start + (end-start)*t
+
+和Mathf的区别：
+Mathf.lerp是一个数字(二维)
+vector3.lerp是向量(三位)
+
+## 代码
+### 缓速
+`A.position = Vector3.Lerp(A.position, target.position, Time.deltaTime);`
+
+### 匀速
+当time&gt;=1时，相当于与目标重合
+```c#
+if(nowTarget != target.position)//target改变了就会进这里
+{           
+    nowTarget = target.position;
+    time = 0;
+    startPos = B.position;
+}
+time += Time.deltaTime;
+B.position = Vector3.Lerp(startPos, nowTarget, time);
+```
+
+### 球形差值
+弧形轨迹
+`C.position = Vector3.Slerp(Vector3.right*10, Vector3.forward*10, time*0.1f);`。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-xiang-liang.html</guid><pubDate>Thu, 30 Apr 2026 07:10:06 +0000</pubDate></item><item><title>【unity基础】三角函数</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-san-jiao-han-shu.html</link><description># 三角函数
 ## 三角
 ### 角度转弧度
 (30° = π/180° * 30 = π/6) 

@@ -127,7 +127,37 @@ else
 {
  print('B在A左侧');
 }
-```。">
+```
+
+# 向量插值运算
+## 基本概念
+让一个位置移动到另一个位置（缓速/匀速）
+result = start + (end-start)*t
+
+和Mathf的区别：
+Mathf.lerp是一个数字(二维)
+vector3.lerp是向量(三位)
+
+## 代码
+### 缓速
+`A.position = Vector3.Lerp(A.position, target.position, Time.deltaTime);`
+
+### 匀速
+当time>=1时，相当于与目标重合
+```c#
+if(nowTarget != target.position)//target改变了就会进这里
+{           
+    nowTarget = target.position;
+    time = 0;
+    startPos = B.position;
+}
+time += Time.deltaTime;
+B.position = Vector3.Lerp(startPos, nowTarget, time);
+```
+
+### 球形差值
+弧形轨迹
+`C.position = Vector3.Slerp(Vector3.right*10, Vector3.forward*10, time*0.1f);`。">
 <meta property="og:title" content="【unity基础】向量">
 <meta property="og:description" content="# 向量模长和单位向量
 ## 基础概念
@@ -246,7 +276,37 @@ else
 {
  print('B在A左侧');
 }
-```。">
+```
+
+# 向量插值运算
+## 基本概念
+让一个位置移动到另一个位置（缓速/匀速）
+result = start + (end-start)*t
+
+和Mathf的区别：
+Mathf.lerp是一个数字(二维)
+vector3.lerp是向量(三位)
+
+## 代码
+### 缓速
+`A.position = Vector3.Lerp(A.position, target.position, Time.deltaTime);`
+
+### 匀速
+当time>=1时，相当于与目标重合
+```c#
+if(nowTarget != target.position)//target改变了就会进这里
+{           
+    nowTarget = target.position;
+    time = 0;
+    startPos = B.position;
+}
+time += Time.deltaTime;
+B.position = Vector3.Lerp(startPos, nowTarget, time);
+```
+
+### 球形差值
+弧形轨迹
+`C.position = Vector3.Slerp(Vector3.right*10, Vector3.forward*10, time*0.1f);`。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-xiang-liang.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/206855738?v=4&size=64">
@@ -402,7 +462,30 @@ y &lt; 0 B在A左侧</p>
 <span class="pl-k">else</span>
 <span class="pl-kos">{</span>
  <span class="pl-s1">print</span><span class="pl-kos">(</span><span class="pl-s">"B在A左侧"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-kos">}</span></pre></div></div>
+<span class="pl-kos">}</span></pre></div>
+<h1>向量插值运算</h1>
+<h2>基本概念</h2>
+<p>让一个位置移动到另一个位置（缓速/匀速）<br>
+result = start + (end-start)*t</p>
+<p>和Mathf的区别：<br>
+Mathf.lerp是一个数字(二维)<br>
+vector3.lerp是向量(三位)</p>
+<h2>代码</h2>
+<h3>缓速</h3>
+<p><code class="notranslate">A.position = Vector3.Lerp(A.position, target.position, Time.deltaTime);</code></p>
+<h3>匀速</h3>
+<p>当time&gt;=1时，相当于与目标重合</p>
+<div class="highlight highlight-source-cs"><pre class="notranslate"><span class="pl-k">if</span><span class="pl-kos">(</span><span class="pl-s1">nowTarget</span> <span class="pl-c1">!=</span> <span class="pl-s1">target</span><span class="pl-kos">.</span><span class="pl-s1">position</span><span class="pl-kos">)</span><span class="pl-c">//target改变了就会进这里</span>
+<span class="pl-kos">{</span>           
+    <span class="pl-s1">nowTarget</span> <span class="pl-c1">=</span> <span class="pl-s1">target</span><span class="pl-kos">.</span><span class="pl-s1">position</span><span class="pl-kos">;</span>
+    <span class="pl-s1">time</span> <span class="pl-c1">=</span> <span class="pl-c1">0</span><span class="pl-kos">;</span>
+    <span class="pl-s1">startPos</span> <span class="pl-c1">=</span> <span class="pl-s1">B</span><span class="pl-kos">.</span><span class="pl-s1">position</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span>
+<span class="pl-s1">time</span> <span class="pl-c1">+=</span> <span class="pl-s1">Time</span><span class="pl-kos">.</span><span class="pl-s1">deltaTime</span><span class="pl-kos">;</span>
+<span class="pl-s1">B</span><span class="pl-kos">.</span><span class="pl-s1">position</span> <span class="pl-c1">=</span> <span class="pl-s1">Vector3</span><span class="pl-kos">.</span><span class="pl-en">Lerp</span><span class="pl-kos">(</span><span class="pl-s1">startPos</span><span class="pl-kos">,</span> <span class="pl-s1">nowTarget</span><span class="pl-kos">,</span> <span class="pl-s1">time</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<h3>球形差值</h3>
+<p>弧形轨迹<br>
+<code class="notranslate">C.position = Vector3.Slerp(Vector3.right*10, Vector3.forward*10, time*0.1f);</code></p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
