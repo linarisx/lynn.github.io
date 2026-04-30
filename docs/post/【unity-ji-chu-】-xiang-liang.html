@@ -10,14 +10,14 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="# 单位模长和单位向量
+<meta name="description" content="# 向量模长和单位向量
 ## 基础概念
 
 1. 两点之间得到向量
 2. 一个点可以是和原点的向量
 
-向量模长：两点距离，向量长度
-单位向量：单位为1的方向线路，与移动相关
+**向量模长：两点距离，向量长度
+单位向量：单位为1的方向线路，与移动相关**
 
 模长计算公式：根号下(x² + y² + z²)
 单位向量计算：（x/模长， y/模长， z/模长）
@@ -46,16 +46,32 @@ AB单位向量
 `print(AB.normalized);`
 
 单位向量=向量/模长
-`print(AB / AB.magnitude);`。">
+`print(AB / AB.magnitude);`
+
+# 向量的加减乘除
+## 概念
+向量 + 向量 = 新向量（首尾相连连首尾）
+位置 + 向量 = 一个新的位置（平移位置）
+
+位置 - 位置 = 向量（终点 - 起点）
+向量 - 向量 = 向量（头连头，尾指尾）
+位置 - 向量 = 位置（平移位置）
+
+向量乘除：用于模长的放大缩小
+
+```c#
+this.transform.localScale *= 2;
+this.transform.localScale /= 2;
+```。">
 <meta property="og:title" content="【unity基础】向量">
-<meta property="og:description" content="# 单位模长和单位向量
+<meta property="og:description" content="# 向量模长和单位向量
 ## 基础概念
 
 1. 两点之间得到向量
 2. 一个点可以是和原点的向量
 
-向量模长：两点距离，向量长度
-单位向量：单位为1的方向线路，与移动相关
+**向量模长：两点距离，向量长度
+单位向量：单位为1的方向线路，与移动相关**
 
 模长计算公式：根号下(x² + y² + z²)
 单位向量计算：（x/模长， y/模长， z/模长）
@@ -84,7 +100,23 @@ AB单位向量
 `print(AB.normalized);`
 
 单位向量=向量/模长
-`print(AB / AB.magnitude);`。">
+`print(AB / AB.magnitude);`
+
+# 向量的加减乘除
+## 概念
+向量 + 向量 = 新向量（首尾相连连首尾）
+位置 + 向量 = 一个新的位置（平移位置）
+
+位置 - 位置 = 向量（终点 - 起点）
+向量 - 向量 = 向量（头连头，尾指尾）
+位置 - 向量 = 位置（平移位置）
+
+向量乘除：用于模长的放大缩小
+
+```c#
+this.transform.localScale *= 2;
+this.transform.localScale /= 2;
+```。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-xiang-liang.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/206855738?v=4&size=64">
@@ -155,14 +187,14 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><h1>单位模长和单位向量</h1>
+<div class="markdown-body" id="postBody"><h1>向量模长和单位向量</h1>
 <h2>基础概念</h2>
 <ol>
 <li>两点之间得到向量</li>
 <li>一个点可以是和原点的向量</li>
 </ol>
-<p>向量模长：两点距离，向量长度<br>
-单位向量：单位为1的方向线路，与移动相关</p>
+<p><strong>向量模长：两点距离，向量长度<br>
+单位向量：单位为1的方向线路，与移动相关</strong></p>
 <p>模长计算公式：根号下(x² + y² + z²)<br>
 单位向量计算：（x/模长， y/模长， z/模长）</p>
 <h2>代码相关</h2>
@@ -181,7 +213,17 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>AB单位向量<br>
 <code class="notranslate">print(AB.normalized);</code></p>
 <p>单位向量=向量/模长<br>
-<code class="notranslate">print(AB / AB.magnitude);</code></p></div>
+<code class="notranslate">print(AB / AB.magnitude);</code></p>
+<h1>向量的加减乘除</h1>
+<h2>概念</h2>
+<p>向量 + 向量 = 新向量（首尾相连连首尾）<br>
+位置 + 向量 = 一个新的位置（平移位置）</p>
+<p>位置 - 位置 = 向量（终点 - 起点）<br>
+向量 - 向量 = 向量（头连头，尾指尾）<br>
+位置 - 向量 = 位置（平移位置）</p>
+<p>向量乘除：用于模长的放大缩小</p>
+<div class="highlight highlight-source-cs"><pre class="notranslate"><span class="pl-k">this</span><span class="pl-kos">.</span><span class="pl-s1">transform</span><span class="pl-kos">.</span><span class="pl-s1">localScale</span> <span class="pl-c1">*=</span> <span class="pl-c1">2</span><span class="pl-kos">;</span>
+<span class="pl-k">this</span><span class="pl-kos">.</span><span class="pl-s1">transform</span><span class="pl-kos">.</span><span class="pl-s1">localScale</span> <span class="pl-c1">/=</span> <span class="pl-c1">2</span><span class="pl-kos">;</span></pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
