@@ -87,8 +87,12 @@ print(Mathf.Acos(result) * Mathf.Rad2Deg);
 
 # 叉乘
 ## 基本概念
-叉乘，两个向量叉乘得到一个新向量（AB平面的法向量）
+A叉乘B得到一个新向量（新向量是AB平面的法向量）
 X = YaZb - ZaYb   Y = ZaXb - XaZb   Z = XaYb - YaXb
+
+<img width="609" height="273" alt="Image" src="https://github.com/user-attachments/assets/9ccf50db-bc4d-4bd5-8027-46f8596dca28" />
+
+## 几何意义
 这个新向量同时垂直于AB
 A×B = -(B×A)
 
@@ -96,6 +100,9 @@ A×B
 判断的是向量
 y > 0 B在A右侧
 y < 0 B在A左侧
+
+<!-- Failed to upload "Snipaste_2026-04-30_15-46-59.png" -->
+<img width="719" height="332" alt="Image" src="https://github.com/user-attachments/assets/0875a201-9fdc-4ba7-8def-6c17033bf2b7" />
 
 ## 代码
 ```c#

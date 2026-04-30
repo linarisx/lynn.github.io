@@ -99,8 +99,12 @@ print(Mathf.Acos(result) * Mathf.Rad2Deg);
 
 # 叉乘
 ## 基本概念
-叉乘，两个向量叉乘得到一个新向量（AB平面的法向量）
+A叉乘B得到一个新向量（新向量是AB平面的法向量）
 X = YaZb - ZaYb   Y = ZaXb - XaZb   Z = XaYb - YaXb
+
+<img width='609' height='273' alt='Image' src='https://github.com/user-attachments/assets/9ccf50db-bc4d-4bd5-8027-46f8596dca28' />
+
+## 几何意义
 这个新向量同时垂直于AB
 A×B = -(B×A)
 
@@ -108,6 +112,9 @@ A×B
 判断的是向量
 y > 0 B在A右侧
 y < 0 B在A左侧
+
+<!-- Failed to upload 'Snipaste_2026-04-30_15-46-59.png' -->
+<img width='719' height='332' alt='Image' src='https://github.com/user-attachments/assets/0875a201-9fdc-4ba7-8def-6c17033bf2b7' />
 
 ## 代码
 ```c#
@@ -211,8 +218,12 @@ print(Mathf.Acos(result) * Mathf.Rad2Deg);
 
 # 叉乘
 ## 基本概念
-叉乘，两个向量叉乘得到一个新向量（AB平面的法向量）
+A叉乘B得到一个新向量（新向量是AB平面的法向量）
 X = YaZb - ZaYb   Y = ZaXb - XaZb   Z = XaYb - YaXb
+
+<img width='609' height='273' alt='Image' src='https://github.com/user-attachments/assets/9ccf50db-bc4d-4bd5-8027-46f8596dca28' />
+
+## 几何意义
 这个新向量同时垂直于AB
 A×B = -(B×A)
 
@@ -220,6 +231,9 @@ A×B
 判断的是向量
 y > 0 B在A右侧
 y < 0 B在A左侧
+
+<!-- Failed to upload 'Snipaste_2026-04-30_15-46-59.png' -->
+<img width='719' height='332' alt='Image' src='https://github.com/user-attachments/assets/0875a201-9fdc-4ba7-8def-6c17033bf2b7' />
 
 ## 代码
 ```c#
@@ -367,14 +381,18 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <code class="notranslate">Vector3.Angle(this.transform.position, target.position - this.transform.position);</code></p>
 <h1>叉乘</h1>
 <h2>基本概念</h2>
-<p>叉乘，两个向量叉乘得到一个新向量（AB平面的法向量）<br>
-X = YaZb - ZaYb   Y = ZaXb - XaZb   Z = XaYb - YaXb<br>
-这个新向量同时垂直于AB<br>
+<p>A叉乘B得到一个新向量（新向量是AB平面的法向量）<br>
+X = YaZb - ZaYb   Y = ZaXb - XaZb   Z = XaYb - YaXb</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/9ccf50db-bc4d-4bd5-8027-46f8596dca28"><img width="609" height="273" alt="Image" src="https://github.com/user-attachments/assets/9ccf50db-bc4d-4bd5-8027-46f8596dca28" style="max-width: 100%; height: auto; max-height: 273px;; aspect-ratio: 609 / 273; background-color: var(--bgColor-muted); border-radius: 6px; display: block" class="js-gh-image-fallback"></a></p>
+<h2>几何意义</h2>
+<p>这个新向量同时垂直于AB<br>
 A×B = -(B×A)</p>
 <p>A×B<br>
 判断的是向量<br>
 y &gt; 0 B在A右侧<br>
 y &lt; 0 B在A左侧</p>
+
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/0875a201-9fdc-4ba7-8def-6c17033bf2b7"><img width="719" height="332" alt="Image" src="https://github.com/user-attachments/assets/0875a201-9fdc-4ba7-8def-6c17033bf2b7" style="max-width: 100%; height: auto; max-height: 332px;; aspect-ratio: 719 / 332; background-color: var(--bgColor-muted); border-radius: 6px; display: block" class="js-gh-image-fallback"></a></p>
 <h2>代码</h2>
 <div class="highlight highlight-source-cs"><pre class="notranslate"><span class="pl-smi">Vector3</span> <span class="pl-s1">C</span> <span class="pl-c1">=</span> <span class="pl-s1">Vector3</span><span class="pl-kos">.</span><span class="pl-en">Cross</span><span class="pl-kos">(</span><span class="pl-s1">A</span><span class="pl-kos">.</span><span class="pl-s1">position</span><span class="pl-kos">,</span> <span class="pl-s1">B</span><span class="pl-kos">.</span><span class="pl-s1">position</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-c">//叉乘</span>
 <span class="pl-k">if</span><span class="pl-kos">(</span><span class="pl-s1">C</span><span class="pl-kos">.</span><span class="pl-s1">y</span> <span class="pl-c1">&gt;</span> <span class="pl-c1">0</span><span class="pl-kos">)</span>
