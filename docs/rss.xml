@@ -1,5 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Thu, 30 Apr 2026 04:30:51 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】Mathf</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91Mathf.html</link><description># Mathf
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Thu, 30 Apr 2026 04:49:46 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】三角函数</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-san-jiao-han-shu.html</link><description># 三角函数
+## 三角
+### 角度转弧度
+(30° = π/180° * 30 = π/6) 
+π/6 -&gt; 30° - &gt; sin30° = 0.5
+`Mathf.Sin(30 * Mathf.Deg2Rad)`
+
+π/3 -&gt; 60° -&gt; cos60° = 0.5
+`Mathf.Cos(60 * Mathf.Deg2Rad)`
+
+## 反三角
+### 弧度转角度
+默认算出的是弧度制
+0.5 -&gt; 30的弧度制 -&gt; 30°
+```c#
+float s = Mathf.Asin(0.5f) 
+print(s * Mathf.Rad2Deg);
+```
+
+0.5 -&gt; 60的弧度制 -&gt; 60°
+```c#
+float c = Mathf.Acos(0.5f);
+print(c * Mathf.Rad2Deg);
+```。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-san-jiao-han-shu.html</guid><pubDate>Thu, 30 Apr 2026 04:49:15 +0000</pubDate></item><item><title>【unity基础】Mathf</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91Mathf.html</link><description># Mathf
 ## 基础常见使用
 ### 绝对值
 `print(Mathf.Abs(-1));`
