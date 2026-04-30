@@ -1,5 +1,62 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Thu, 30 Apr 2026 04:16:29 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity入门】场景切换 游戏退出 光标 随机数 委托</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-chang-jing-qie-huan-%20-you-xi-tui-chu-%20-guang-biao-%20-sui-ji-shu-%20-wei-tuo.html</link><description># 场景切换 游戏退出 光标 随机数 委托
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Thu, 30 Apr 2026 04:24:00 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】Mathf</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91Mathf.html</link><description># Mathf
+## 基础常见使用
+### 绝对值
+`print(Mathf.Abs(-1));`
+
+### 向上取整
+`print(Mathf.CeilToInt(1.3f));`
+
+### 向下取整
+`print((int)1.3f);`
+`print(Mathf.FloorToInt(1.3f));`
+
+### clamp 夹紧 
+比最小还小就输出最小，比最大还大就输出最大，其他就是正常值
+（值，最小值，最大值）
+`print(Mathf.Clamp(10, 11, 20));`
+
+### 最大值
+`print(Mathf.Max(12, 6, 5));`
+### 最小值
+`print(Mathf.Min(13, 7, 4));`
+
+### 四舍五入
+`print(Mathf.RoundToInt(1.3f));`
+`print(Mathf.RoundToInt(1.6f));`
+
+### 平方根，开根号
+开不出整数会自动算小数
+`print(Mathf.Sqrt(64));`
+`print(Mathf.Sqrt(10));`
+
+### 判断是否是2的次方
+返回true/false
+`print(Mathf.IsPowerOfTwo(10));`
+
+### 判断正负数
+正数返回1，负数返回-1
+`print(Mathf.Sign(10));`
+`print(Mathf.Sign(-10));`
+
+## 线性差值的运算
+Lerp 线性插值运算 一直计算
+result = Mathf.Lerp(start, end, t);
+result = start + (end - start) * t
+t为插值系数（0~1）
+
+```c#
+float start = 0;
+float result = 0;
+float time = 0;
+void Update()
+{   
+   start = Mathf.Lerp(start, 10, Time.deltaTime);//一直趋近10，start变大
+
+   time += Time.deltaTime;
+   result = Mathf.Lerp(start, 10, time);//一直匀速上涨到10，因为t一直变大
+}
+```。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91Mathf.html</guid><pubDate>Thu, 30 Apr 2026 04:23:29 +0000</pubDate></item><item><title>【unity入门】场景切换 游戏退出 光标 随机数 委托</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-chang-jing-qie-huan-%20-you-xi-tui-chu-%20-guang-biao-%20-sui-ji-shu-%20-wei-tuo.html</link><description># 场景切换 游戏退出 光标 随机数 委托
 ## 场景切换和游戏退出
 ### 改变场景
 `SceneManager.LoadScene('Scene2');`
