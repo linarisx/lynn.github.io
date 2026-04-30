@@ -143,7 +143,7 @@ vector3.lerp是向量(三位)
 `A.position = Vector3.Lerp(A.position, target.position, Time.deltaTime);`
 
 ### 匀速
-当time>=1时，相当于与目标重合
+当time>=1时，相当于与目标重合，或超出终点
 ```c#
 if(nowTarget != target.position)//target改变了就会进这里
 {           
@@ -156,7 +156,7 @@ B.position = Vector3.Lerp(startPos, nowTarget, time);
 ```
 
 ### 球形差值
-弧形轨迹
+弧形轨迹（第三个参数区间是0~1的值）
 `C.position = Vector3.Slerp(Vector3.right*10, Vector3.forward*10, time*0.1f);`。">
 <meta property="og:title" content="【unity基础】向量">
 <meta property="og:description" content="# 向量模长和单位向量
@@ -292,7 +292,7 @@ vector3.lerp是向量(三位)
 `A.position = Vector3.Lerp(A.position, target.position, Time.deltaTime);`
 
 ### 匀速
-当time>=1时，相当于与目标重合
+当time>=1时，相当于与目标重合，或超出终点
 ```c#
 if(nowTarget != target.position)//target改变了就会进这里
 {           
@@ -305,7 +305,7 @@ B.position = Vector3.Lerp(startPos, nowTarget, time);
 ```
 
 ### 球形差值
-弧形轨迹
+弧形轨迹（第三个参数区间是0~1的值）
 `C.position = Vector3.Slerp(Vector3.right*10, Vector3.forward*10, time*0.1f);`。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-xiang-liang.html">
@@ -474,7 +474,7 @@ vector3.lerp是向量(三位)</p>
 <h3>缓速</h3>
 <p><code class="notranslate">A.position = Vector3.Lerp(A.position, target.position, Time.deltaTime);</code></p>
 <h3>匀速</h3>
-<p>当time&gt;=1时，相当于与目标重合</p>
+<p>当time&gt;=1时，相当于与目标重合，或超出终点</p>
 <div class="highlight highlight-source-cs"><pre class="notranslate"><span class="pl-k">if</span><span class="pl-kos">(</span><span class="pl-s1">nowTarget</span> <span class="pl-c1">!=</span> <span class="pl-s1">target</span><span class="pl-kos">.</span><span class="pl-s1">position</span><span class="pl-kos">)</span><span class="pl-c">//target改变了就会进这里</span>
 <span class="pl-kos">{</span>           
     <span class="pl-s1">nowTarget</span> <span class="pl-c1">=</span> <span class="pl-s1">target</span><span class="pl-kos">.</span><span class="pl-s1">position</span><span class="pl-kos">;</span>
@@ -484,7 +484,7 @@ vector3.lerp是向量(三位)</p>
 <span class="pl-s1">time</span> <span class="pl-c1">+=</span> <span class="pl-s1">Time</span><span class="pl-kos">.</span><span class="pl-s1">deltaTime</span><span class="pl-kos">;</span>
 <span class="pl-s1">B</span><span class="pl-kos">.</span><span class="pl-s1">position</span> <span class="pl-c1">=</span> <span class="pl-s1">Vector3</span><span class="pl-kos">.</span><span class="pl-en">Lerp</span><span class="pl-kos">(</span><span class="pl-s1">startPos</span><span class="pl-kos">,</span> <span class="pl-s1">nowTarget</span><span class="pl-kos">,</span> <span class="pl-s1">time</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
 <h3>球形差值</h3>
-<p>弧形轨迹<br>
+<p>弧形轨迹（第三个参数区间是0~1的值）<br>
 <code class="notranslate">C.position = Vector3.Slerp(Vector3.right*10, Vector3.forward*10, time*0.1f);</code></p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 

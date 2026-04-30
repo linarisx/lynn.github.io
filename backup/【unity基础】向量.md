@@ -131,7 +131,7 @@ vector3.lerp是向量(三位)
 `A.position = Vector3.Lerp(A.position, target.position, Time.deltaTime);`
 
 ### 匀速
-当time>=1时，相当于与目标重合
+当time>=1时，相当于与目标重合，或超出终点
 ```c#
 if(nowTarget != target.position)//target改变了就会进这里
 {           
@@ -144,5 +144,5 @@ B.position = Vector3.Lerp(startPos, nowTarget, time);
 ```
 
 ### 球形差值
-弧形轨迹
+弧形轨迹（第三个参数区间是0~1的值）
 `C.position = Vector3.Slerp(Vector3.right*10, Vector3.forward*10, time*0.1f);`
