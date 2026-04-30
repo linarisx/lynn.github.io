@@ -60,6 +60,7 @@ this.transform.localScale /= 2;
 点乘结果 > 0 夹角为锐角
 点乘结果 = 0 夹角为直角
 点乘结果 < 0 夹角为钝角
+
 可以通过点乘结果来判断敌人是否在玩家前方
 ```c#
  result = Vector3.Dot(this.transform.forward, (target.position - this.transform.position));
@@ -71,5 +72,15 @@ this.transform.localScale /= 2;
  {
      print("敌人在后方");
  }
-
 ```
+
+## 计算两个向量之间的角度
+### 公式：
+β = Acos(A单位向量 点乘 B单位向量) 0 - 180
+### 代码：
+```
+result = Vector3.Dot(this.transform.forward, (target.position - this.transform.position).normalized);
+print(Mathf.Acos(result) * Mathf.Rad2Deg);
+```
+另一种写法
+`Vector3.Angle(this.transform.position, target.position - this.transform.position);`

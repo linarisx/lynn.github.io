@@ -72,6 +72,7 @@ this.transform.localScale /= 2;
 点乘结果 > 0 夹角为锐角
 点乘结果 = 0 夹角为直角
 点乘结果 < 0 夹角为钝角
+
 可以通过点乘结果来判断敌人是否在玩家前方
 ```c#
  result = Vector3.Dot(this.transform.forward, (target.position - this.transform.position));
@@ -83,8 +84,18 @@ this.transform.localScale /= 2;
  {
      print('敌人在后方');
  }
-
 ```
+
+## 计算两个向量之间的角度
+### 公式：
+β = Acos(A单位向量 点乘 B单位向量) 0 - 180
+### 代码：
+```
+result = Vector3.Dot(this.transform.forward, (target.position - this.transform.position).normalized);
+print(Mathf.Acos(result) * Mathf.Rad2Deg);
+```
+另一种写法
+`Vector3.Angle(this.transform.position, target.position - this.transform.position);`
 。">
 <meta property="og:title" content="【unity基础】向量">
 <meta property="og:description" content="# 向量模长和单位向量
@@ -149,6 +160,7 @@ this.transform.localScale /= 2;
 点乘结果 > 0 夹角为锐角
 点乘结果 = 0 夹角为直角
 点乘结果 < 0 夹角为钝角
+
 可以通过点乘结果来判断敌人是否在玩家前方
 ```c#
  result = Vector3.Dot(this.transform.forward, (target.position - this.transform.position));
@@ -160,8 +172,18 @@ this.transform.localScale /= 2;
  {
      print('敌人在后方');
  }
-
 ```
+
+## 计算两个向量之间的角度
+### 公式：
+β = Acos(A单位向量 点乘 B单位向量) 0 - 180
+### 代码：
+```
+result = Vector3.Dot(this.transform.forward, (target.position - this.transform.position).normalized);
+print(Mathf.Acos(result) * Mathf.Rad2Deg);
+```
+另一种写法
+`Vector3.Angle(this.transform.position, target.position - this.transform.position);`
 。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-xiang-liang.html">
@@ -276,8 +298,8 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 公式：A·B = Xa * Xb + Ya * Yb + Za * Zb</p>
 <p>点乘结果 &gt; 0 夹角为锐角<br>
 点乘结果 = 0 夹角为直角<br>
-点乘结果 &lt; 0 夹角为钝角<br>
-可以通过点乘结果来判断敌人是否在玩家前方</p>
+点乘结果 &lt; 0 夹角为钝角</p>
+<p>可以通过点乘结果来判断敌人是否在玩家前方</p>
 <div class="highlight highlight-source-cs"><pre class="notranslate"> <span class="pl-s1">result</span> <span class="pl-c1">=</span> <span class="pl-s1">Vector3</span><span class="pl-kos">.</span><span class="pl-en">Dot</span><span class="pl-kos">(</span><span class="pl-k">this</span><span class="pl-kos">.</span><span class="pl-s1">transform</span><span class="pl-kos">.</span><span class="pl-s1">forward</span><span class="pl-kos">,</span> <span class="pl-kos">(</span><span class="pl-s1">target</span><span class="pl-kos">.</span><span class="pl-s1">position</span> <span class="pl-c1">-</span> <span class="pl-k">this</span><span class="pl-kos">.</span><span class="pl-s1">transform</span><span class="pl-kos">.</span><span class="pl-s1">position</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
  <span class="pl-k">if</span><span class="pl-kos">(</span><span class="pl-s1">result</span> <span class="pl-c1">&gt;=</span> <span class="pl-c1">0</span><span class="pl-kos">)</span>
  <span class="pl-kos">{</span>
@@ -286,7 +308,16 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
  <span class="pl-k">else</span>
  <span class="pl-kos">{</span>
      <span class="pl-s1">print</span><span class="pl-kos">(</span><span class="pl-s">"敌人在后方"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
- <span class="pl-kos">}</span></pre></div></div>
+ <span class="pl-kos">}</span></pre></div>
+<h2>计算两个向量之间的角度</h2>
+<h3>公式：</h3>
+<p>β = Acos(A单位向量 点乘 B单位向量) 0 - 180</p>
+<h3>代码：</h3>
+<pre class="notranslate"><code class="notranslate">result = Vector3.Dot(this.transform.forward, (target.position - this.transform.position).normalized);
+print(Mathf.Acos(result) * Mathf.Rad2Deg);
+</code></pre>
+<p>另一种写法<br>
+<code class="notranslate">Vector3.Angle(this.transform.position, target.position - this.transform.position);</code></p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
