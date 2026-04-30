@@ -86,17 +86,41 @@ this.transform.localScale /= 2;
  }
 ```
 
-## 计算两个向量之间的角度
-### 公式：
+# 计算两个向量之间的角度
+## 公式：
 β = Acos(A单位向量 点乘 B单位向量) 0 - 180
-### 代码：
-```
+## 代码：
+```c#
 result = Vector3.Dot(this.transform.forward, (target.position - this.transform.position).normalized);
 print(Mathf.Acos(result) * Mathf.Rad2Deg);
 ```
 另一种写法
 `Vector3.Angle(this.transform.position, target.position - this.transform.position);`
-。">
+
+# 叉乘
+## 基本概念
+叉乘，两个向量叉乘得到一个新向量（AB平面的法向量）
+X = YaZb - ZaYb   Y = ZaXb - XaZb   Z = XaYb - YaXb
+这个新向量同时垂直于AB
+A×B = -(B×A)
+
+A×B
+判断的是向量
+y > 0 B在A右侧
+y < 0 B在A左侧
+
+## 代码
+```c#
+Vector3 C = Vector3.Cross(A.position, B.position);//叉乘
+if(C.y > 0)
+{
+ print('B在A右侧');
+}
+else
+{
+ print('B在A左侧');
+}
+```。">
 <meta property="og:title" content="【unity基础】向量">
 <meta property="og:description" content="# 向量模长和单位向量
 ## 基础概念
@@ -174,17 +198,41 @@ this.transform.localScale /= 2;
  }
 ```
 
-## 计算两个向量之间的角度
-### 公式：
+# 计算两个向量之间的角度
+## 公式：
 β = Acos(A单位向量 点乘 B单位向量) 0 - 180
-### 代码：
-```
+## 代码：
+```c#
 result = Vector3.Dot(this.transform.forward, (target.position - this.transform.position).normalized);
 print(Mathf.Acos(result) * Mathf.Rad2Deg);
 ```
 另一种写法
 `Vector3.Angle(this.transform.position, target.position - this.transform.position);`
-。">
+
+# 叉乘
+## 基本概念
+叉乘，两个向量叉乘得到一个新向量（AB平面的法向量）
+X = YaZb - ZaYb   Y = ZaXb - XaZb   Z = XaYb - YaXb
+这个新向量同时垂直于AB
+A×B = -(B×A)
+
+A×B
+判断的是向量
+y > 0 B在A右侧
+y < 0 B在A左侧
+
+## 代码
+```c#
+Vector3 C = Vector3.Cross(A.position, B.position);//叉乘
+if(C.y > 0)
+{
+ print('B在A右侧');
+}
+else
+{
+ print('B在A左侧');
+}
+```。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-xiang-liang.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/206855738?v=4&size=64">
@@ -309,15 +357,34 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
  <span class="pl-kos">{</span>
      <span class="pl-s1">print</span><span class="pl-kos">(</span><span class="pl-s">"敌人在后方"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
  <span class="pl-kos">}</span></pre></div>
-<h2>计算两个向量之间的角度</h2>
-<h3>公式：</h3>
+<h1>计算两个向量之间的角度</h1>
+<h2>公式：</h2>
 <p>β = Acos(A单位向量 点乘 B单位向量) 0 - 180</p>
-<h3>代码：</h3>
-<pre class="notranslate"><code class="notranslate">result = Vector3.Dot(this.transform.forward, (target.position - this.transform.position).normalized);
-print(Mathf.Acos(result) * Mathf.Rad2Deg);
-</code></pre>
+<h2>代码：</h2>
+<div class="highlight highlight-source-cs"><pre class="notranslate"><span class="pl-s1">result</span> <span class="pl-c1">=</span> <span class="pl-s1">Vector3</span><span class="pl-kos">.</span><span class="pl-en">Dot</span><span class="pl-kos">(</span><span class="pl-k">this</span><span class="pl-kos">.</span><span class="pl-s1">transform</span><span class="pl-kos">.</span><span class="pl-s1">forward</span><span class="pl-kos">,</span> <span class="pl-kos">(</span><span class="pl-s1">target</span><span class="pl-kos">.</span><span class="pl-s1">position</span> <span class="pl-c1">-</span> <span class="pl-k">this</span><span class="pl-kos">.</span><span class="pl-s1">transform</span><span class="pl-kos">.</span><span class="pl-s1">position</span><span class="pl-kos">)</span><span class="pl-kos">.</span><span class="pl-s1">normalized</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-s1">print</span><span class="pl-kos">(</span><span class="pl-s1">Mathf</span><span class="pl-kos">.</span><span class="pl-en">Acos</span><span class="pl-kos">(</span><span class="pl-s1">result</span><span class="pl-kos">)</span> <span class="pl-c1">*</span> <span class="pl-s1">Mathf</span><span class="pl-kos">.</span><span class="pl-s1">Rad2Deg</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
 <p>另一种写法<br>
-<code class="notranslate">Vector3.Angle(this.transform.position, target.position - this.transform.position);</code></p></div>
+<code class="notranslate">Vector3.Angle(this.transform.position, target.position - this.transform.position);</code></p>
+<h1>叉乘</h1>
+<h2>基本概念</h2>
+<p>叉乘，两个向量叉乘得到一个新向量（AB平面的法向量）<br>
+X = YaZb - ZaYb   Y = ZaXb - XaZb   Z = XaYb - YaXb<br>
+这个新向量同时垂直于AB<br>
+A×B = -(B×A)</p>
+<p>A×B<br>
+判断的是向量<br>
+y &gt; 0 B在A右侧<br>
+y &lt; 0 B在A左侧</p>
+<h2>代码</h2>
+<div class="highlight highlight-source-cs"><pre class="notranslate"><span class="pl-smi">Vector3</span> <span class="pl-s1">C</span> <span class="pl-c1">=</span> <span class="pl-s1">Vector3</span><span class="pl-kos">.</span><span class="pl-en">Cross</span><span class="pl-kos">(</span><span class="pl-s1">A</span><span class="pl-kos">.</span><span class="pl-s1">position</span><span class="pl-kos">,</span> <span class="pl-s1">B</span><span class="pl-kos">.</span><span class="pl-s1">position</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-c">//叉乘</span>
+<span class="pl-k">if</span><span class="pl-kos">(</span><span class="pl-s1">C</span><span class="pl-kos">.</span><span class="pl-s1">y</span> <span class="pl-c1">&gt;</span> <span class="pl-c1">0</span><span class="pl-kos">)</span>
+<span class="pl-kos">{</span>
+ <span class="pl-s1">print</span><span class="pl-kos">(</span><span class="pl-s">"B在A右侧"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span>
+<span class="pl-k">else</span>
+<span class="pl-kos">{</span>
+ <span class="pl-s1">print</span><span class="pl-kos">(</span><span class="pl-s">"B在A左侧"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span></pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>

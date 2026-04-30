@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Thu, 30 Apr 2026 07:37:34 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>Debug相关</title><link>https://linarisx.github.io/lynn.github.io/post/Debug-xiang-guan.html</link><description># Debug
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Thu, 30 Apr 2026 07:44:43 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>Debug相关</title><link>https://linarisx.github.io/lynn.github.io/post/Debug-xiang-guan.html</link><description># Debug
 不用继承MonoBehaviour
 
 ## 打印
@@ -90,17 +90,41 @@ this.transform.localScale /= 2;
  }
 ```
 
-## 计算两个向量之间的角度
-### 公式：
+# 计算两个向量之间的角度
+## 公式：
 β = Acos(A单位向量 点乘 B单位向量) 0 - 180
-### 代码：
-```
+## 代码：
+```c#
 result = Vector3.Dot(this.transform.forward, (target.position - this.transform.position).normalized);
 print(Mathf.Acos(result) * Mathf.Rad2Deg);
 ```
 另一种写法
 `Vector3.Angle(this.transform.position, target.position - this.transform.position);`
-。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-xiang-liang.html</guid><pubDate>Thu, 30 Apr 2026 07:10:06 +0000</pubDate></item><item><title>【unity基础】三角函数</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-san-jiao-han-shu.html</link><description># 三角函数
+
+# 叉乘
+## 基本概念
+叉乘，两个向量叉乘得到一个新向量（AB平面的法向量）
+X = YaZb - ZaYb   Y = ZaXb - XaZb   Z = XaYb - YaXb
+这个新向量同时垂直于AB
+A×B = -(B×A)
+
+A×B
+判断的是向量
+y &gt; 0 B在A右侧
+y &lt; 0 B在A左侧
+
+## 代码
+```c#
+Vector3 C = Vector3.Cross(A.position, B.position);//叉乘
+if(C.y &gt; 0)
+{
+ print('B在A右侧');
+}
+else
+{
+ print('B在A左侧');
+}
+```。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-xiang-liang.html</guid><pubDate>Thu, 30 Apr 2026 07:10:06 +0000</pubDate></item><item><title>【unity基础】三角函数</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-san-jiao-han-shu.html</link><description># 三角函数
 ## 三角
 ### 角度转弧度
 (30° = π/180° * 30 = π/6) 

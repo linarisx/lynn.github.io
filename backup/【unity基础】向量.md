@@ -74,13 +74,38 @@ this.transform.localScale /= 2;
  }
 ```
 
-## 计算两个向量之间的角度
-### 公式：
+# 计算两个向量之间的角度
+## 公式：
 β = Acos(A单位向量 点乘 B单位向量) 0 - 180
-### 代码：
-```
+## 代码：
+```c#
 result = Vector3.Dot(this.transform.forward, (target.position - this.transform.position).normalized);
 print(Mathf.Acos(result) * Mathf.Rad2Deg);
 ```
 另一种写法
 `Vector3.Angle(this.transform.position, target.position - this.transform.position);`
+
+# 叉乘
+## 基本概念
+叉乘，两个向量叉乘得到一个新向量（AB平面的法向量）
+X = YaZb - ZaYb   Y = ZaXb - XaZb   Z = XaYb - YaXb
+这个新向量同时垂直于AB
+A×B = -(B×A)
+
+A×B
+判断的是向量
+y > 0 B在A右侧
+y < 0 B在A左侧
+
+## 代码
+```c#
+Vector3 C = Vector3.Cross(A.position, B.position);//叉乘
+if(C.y > 0)
+{
+ print("B在A右侧");
+}
+else
+{
+ print("B在A左侧");
+}
+```
