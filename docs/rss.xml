@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Thu, 30 Apr 2026 04:24:00 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】Mathf</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91Mathf.html</link><description># Mathf
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Thu, 30 Apr 2026 04:30:51 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】Mathf</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91Mathf.html</link><description># Mathf
 ## 基础常见使用
 ### 绝对值
 `print(Mathf.Abs(-1));`
@@ -56,7 +56,9 @@ void Update()
    time += Time.deltaTime;
    result = Mathf.Lerp(start, 10, time);//一直匀速上涨到10，因为t一直变大
 }
-```。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91Mathf.html</guid><pubDate>Thu, 30 Apr 2026 04:23:29 +0000</pubDate></item><item><title>【unity入门】场景切换 游戏退出 光标 随机数 委托</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-chang-jing-qie-huan-%20-you-xi-tui-chu-%20-guang-biao-%20-sui-ji-shu-%20-wei-tuo.html</link><description># 场景切换 游戏退出 光标 随机数 委托
+```
+### 其他
+如果使用匀速移动到目标点，需要一直更新开始位置、目标位置、时间。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91Mathf.html</guid><pubDate>Thu, 30 Apr 2026 04:23:29 +0000</pubDate></item><item><title>【unity入门】场景切换 游戏退出 光标 随机数 委托</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ru-men-%E3%80%91-chang-jing-qie-huan-%20-you-xi-tui-chu-%20-guang-biao-%20-sui-ji-shu-%20-wei-tuo.html</link><description># 场景切换 游戏退出 光标 随机数 委托
 ## 场景切换和游戏退出
 ### 改变场景
 `SceneManager.LoadScene('Scene2');`
