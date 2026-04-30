@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Thu, 30 Apr 2026 10:21:35 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】延迟函数</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-yan-chi-han-shu.html</link><description># 延迟函数
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Thu, 30 Apr 2026 10:23:57 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】延迟函数</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-yan-chi-han-shu.html</link><description># 延迟函数
 ## 延迟函数
 ### 延迟两秒执行
 `Invoke('Delay', 2);`
@@ -62,7 +62,72 @@ void LateUpdate()
 &lt;img width='431' height='197' alt='Image' src='https://github.com/user-attachments/assets/e60e8558-625c-4bfb-a393-a289a5f3c43d' /&gt;
 
 Vector3.Lerp跟随玩家
-Quaternion.Slerp看向玩家。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/she-xiang-ji-gen-sui-wan-jia-fang-shi.html</guid><pubDate>Thu, 30 Apr 2026 09:59:06 +0000</pubDate></item><item><title>Debug相关</title><link>https://linarisx.github.io/lynn.github.io/post/Debug-xiang-guan.html</link><description># Debug
+Quaternion.Slerp看向玩家。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/she-xiang-ji-gen-sui-wan-jia-fang-shi.html</guid><pubDate>Thu, 30 Apr 2026 09:59:06 +0000</pubDate></item><item><title>【unity基础】四元数</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-si-yuan-shu.html</link><description># 四元数
+## 为何使用四元数
+四元数可以解决的问题
+普通旋转会出现万向节死锁，也就是三位变成只有二维旋转
+一个物体方向能有多个欧拉角角度 比如90,450,等等
+
+## 四元数的使用
+
+&lt;img width='265' height='169' alt='Image' src='https://github.com/user-attachments/assets/2d22f2e6-b661-46c9-9bc3-f0306c3b9ff6' /&gt;
+
+&lt;img width='492' height='251' alt='Image' src='https://github.com/user-attachments/assets/afaaf22d-78a2-4143-b537-7f03f3e2e620' /&gt;
+
+
+###  四元数初始化
+
+&lt;img width='383' height='181' alt='Image' src='https://github.com/user-attachments/assets/e5d18617-fe1e-4b10-bdcd-f15cc8302e07' /&gt;
+
+`Quaternion q = new Quaternion(0, Mathf.Sin(30 * Mathf.Deg2Rad) * 1, 0, Mathf.Cos(30 * Mathf.Deg2Rad));`
+**`Quaternion q = Quaternion.AngleAxis(60, Vector3.up);`**
+
+```c#
+GameObject obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
+obj.transform.rotation = q;
+```
+
+### 四元数欧拉角的转换
+欧拉转四元
+```c#
+Quaternion q2 = Quaternion.Euler(60, 0, 0);
+GameObject obj2 = GameObject.CreatePrimitive(PrimitiveType.Cube);
+obj2.transform.rotation = q2;
+```
+四元转欧拉
+`print(q2.eulerAngles);`
+
+## 四元数的常用用法
+### 单位四元数
+旋转角度(0,0,0) 标量1/-1
+`print(Quaternion.identity);`
+
+### 插值运算
+让一个物体旋转成跟目标物体一样的角度
+**1. 缓速**
+`A.rotation = Quaternion.Slerp(A.rotation, target.transform.rotation, Time.deltaTime);`
+**2. 匀速**
+```
+time += Time.deltaTime;
+B.rotation = Quaternion.Slerp(startB, target.transform.rotation, time);
+```
+
+### LookRotation
+传入一个向量，让一个物体旋转至那个向量的方向，以至于一直看向那个物体
+返回的是一个旋转角度
+`C.rotation = Quaternion.LookRotation(D.position - C.position);`
+
+## 四元数的计算
+### 旋转
+相对于自己坐标系旋转30度
+`this.transform.rotation *= Quaternion.AngleAxis(60, Vector3.up);`
+
+### 旋转向量
+旋转后的向量 = 四元数 * 向量
+```c#
+Vector3 v = Vector3.forward;
+v = Quaternion.AngleAxis(45, Vector3.up) * v; 
+```。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-si-yuan-shu.html</guid><pubDate>Thu, 30 Apr 2026 09:44:52 +0000</pubDate></item><item><title>Debug相关</title><link>https://linarisx.github.io/lynn.github.io/post/Debug-xiang-guan.html</link><description># Debug
 不用继承MonoBehaviour
 
 ## 打印
