@@ -3,8 +3,9 @@
 ### 开启协程
 `StartCoroutine(MyCoroutine(1, "小林"));`
 `IEnumerator ie = MyCoroutine(1, "小林");`
+
 可以一次开多个
-```
+```c#
 Coroutine c1 = StartCoroutine(MyCoroutine(1, "小林"));
 Coroutine c2 = StartCoroutine(MyCoroutine(1, "小林"));
 Coroutine c3 = StartCoroutine(MyCoroutine(1, "小林"));
@@ -71,8 +72,8 @@ yield return new WaitForEndOfFrame();
 迭代器
 ```c#
 IEnumerator ie = MyCoroutine();
-print(ie.Current);
-ie.MoveNext(); //1
+print(ie.Current); // null
+ie.MoveNext(); // 1
 print(ie.Current); //11
 ie.MoveNext();
 print(ie.Current); //12

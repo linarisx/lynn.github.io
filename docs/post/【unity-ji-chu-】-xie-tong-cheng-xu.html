@@ -15,8 +15,9 @@
 ### 开启协程
 `StartCoroutine(MyCoroutine(1, '小林'));`
 `IEnumerator ie = MyCoroutine(1, '小林');`
+
 可以一次开多个
-```
+```c#
 Coroutine c1 = StartCoroutine(MyCoroutine(1, '小林'));
 Coroutine c2 = StartCoroutine(MyCoroutine(1, '小林'));
 Coroutine c3 = StartCoroutine(MyCoroutine(1, '小林'));
@@ -83,8 +84,8 @@ yield return new WaitForEndOfFrame();
 迭代器
 ```c#
 IEnumerator ie = MyCoroutine();
-print(ie.Current);
-ie.MoveNext(); //1
+print(ie.Current); // null
+ie.MoveNext(); // 1
 print(ie.Current); //11
 ie.MoveNext();
 print(ie.Current); //12
@@ -113,8 +114,9 @@ IEnumerator MyCoroutine()
 ### 开启协程
 `StartCoroutine(MyCoroutine(1, '小林'));`
 `IEnumerator ie = MyCoroutine(1, '小林');`
+
 可以一次开多个
-```
+```c#
 Coroutine c1 = StartCoroutine(MyCoroutine(1, '小林'));
 Coroutine c2 = StartCoroutine(MyCoroutine(1, '小林'));
 Coroutine c3 = StartCoroutine(MyCoroutine(1, '小林'));
@@ -181,8 +183,8 @@ yield return new WaitForEndOfFrame();
 迭代器
 ```c#
 IEnumerator ie = MyCoroutine();
-print(ie.Current);
-ie.MoveNext(); //1
+print(ie.Current); // null
+ie.MoveNext(); // 1
 print(ie.Current); //11
 ie.MoveNext();
 print(ie.Current); //12
@@ -279,12 +281,11 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <h2>基本使用</h2>
 <h3>开启协程</h3>
 <p><code class="notranslate">StartCoroutine(MyCoroutine(1, "小林"));</code><br>
-<code class="notranslate">IEnumerator ie = MyCoroutine(1, "小林");</code><br>
-可以一次开多个</p>
-<pre class="notranslate"><code class="notranslate">Coroutine c1 = StartCoroutine(MyCoroutine(1, "小林"));
-Coroutine c2 = StartCoroutine(MyCoroutine(1, "小林"));
-Coroutine c3 = StartCoroutine(MyCoroutine(1, "小林"));
-</code></pre>
+<code class="notranslate">IEnumerator ie = MyCoroutine(1, "小林");</code></p>
+<p>可以一次开多个</p>
+<div class="highlight highlight-source-cs"><pre class="notranslate"><span class="pl-smi">Coroutine</span> <span class="pl-s1">c1</span> <span class="pl-c1">=</span> <span class="pl-s1">StartCoroutine</span><span class="pl-kos">(</span><span class="pl-s1">MyCoroutine</span><span class="pl-kos">(</span><span class="pl-c1">1</span><span class="pl-kos">,</span> <span class="pl-s">"小林"</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-smi">Coroutine</span> <span class="pl-s1">c2</span> <span class="pl-c1">=</span> <span class="pl-s1">StartCoroutine</span><span class="pl-kos">(</span><span class="pl-s1">MyCoroutine</span><span class="pl-kos">(</span><span class="pl-c1">1</span><span class="pl-kos">,</span> <span class="pl-s">"小林"</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-smi">Coroutine</span> <span class="pl-s1">c3</span> <span class="pl-c1">=</span> <span class="pl-s1">StartCoroutine</span><span class="pl-kos">(</span><span class="pl-s1">MyCoroutine</span><span class="pl-kos">(</span><span class="pl-c1">1</span><span class="pl-kos">,</span> <span class="pl-s">"小林"</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
 <h3>关闭所有协程</h3>
 <p><code class="notranslate">StopAllCoroutines();</code></p>
 <h3>关闭一个指定协程</h3>
@@ -346,8 +347,8 @@ yield return new WaitForEndOfFrame();<br>
 <h2>协程原理</h2>
 <p>迭代器</p>
 <div class="highlight highlight-source-cs"><pre class="notranslate"><span class="pl-smi">IEnumerator</span> <span class="pl-s1">ie</span> <span class="pl-c1">=</span> <span class="pl-s1">MyCoroutine</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-s1">print</span><span class="pl-kos">(</span><span class="pl-s1">ie</span><span class="pl-kos">.</span><span class="pl-s1">Current</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-s1">ie</span><span class="pl-kos">.</span><span class="pl-en">MoveNext</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">//1</span>
+<span class="pl-s1">print</span><span class="pl-kos">(</span><span class="pl-s1">ie</span><span class="pl-kos">.</span><span class="pl-s1">Current</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">// null</span>
+<span class="pl-s1">ie</span><span class="pl-kos">.</span><span class="pl-en">MoveNext</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">// 1</span>
 <span class="pl-s1">print</span><span class="pl-kos">(</span><span class="pl-s1">ie</span><span class="pl-kos">.</span><span class="pl-s1">Current</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">//11</span>
 <span class="pl-s1">ie</span><span class="pl-kos">.</span><span class="pl-en">MoveNext</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 <span class="pl-s1">print</span><span class="pl-kos">(</span><span class="pl-s1">ie</span><span class="pl-kos">.</span><span class="pl-s1">Current</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">//12</span>
