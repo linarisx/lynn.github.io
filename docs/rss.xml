@@ -1,5 +1,41 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Thu, 30 Apr 2026 04:49:46 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】三角函数</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-san-jiao-han-shu.html</link><description># 三角函数
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Thu, 30 Apr 2026 07:10:48 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】向量模长和单位向量</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-xiang-liang-mo-chang-he-dan-wei-xiang-liang.html</link><description># 单位模长和单位向量
+## 基础概念
+
+1. 两点之间得到向量
+2. 一个点可以是和原点的向量
+
+向量模长：两点距离，向量长度
+单位向量：单位为1的方向线路，与移动相关
+
+模长计算公式：根号下(x² + y² + z²)
+单位向量计算：（x/模长， y/模长， z/模长）
+
+## 代码相关
+可以是点 也可以是向量
+`Vector3 C = new(1,2,3);`
+
+```c#
+Vector3 A = new(1,7,3);
+Vector3 B = new(4,2,3);
+Vector3 AB = B - A;
+Vector3 BA = A - B;
+```
+
+AB模长
+`print(AB.magnitude);`
+
+AB距离
+`print(Vector3.Distance(A, B));`
+
+OC模长（原点到C的模长）
+`print(C.magnitude);`
+
+AB单位向量
+`print(AB.normalized);`
+
+单位向量=向量/模长
+`print(AB / AB.magnitude);`。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-xiang-liang-mo-chang-he-dan-wei-xiang-liang.html</guid><pubDate>Thu, 30 Apr 2026 07:10:06 +0000</pubDate></item><item><title>【unity基础】三角函数</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-san-jiao-han-shu.html</link><description># 三角函数
 ## 三角
 ### 角度转弧度
 (30° = π/180° * 30 = π/6) 
