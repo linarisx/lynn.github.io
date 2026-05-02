@@ -1,5 +1,81 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Sat, 02 May 2026 10:11:20 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】范围检测</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-fan-wei-jian-ce.html</link><description># 范围检测
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Sat, 02 May 2026 10:30:05 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】射线检测</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-she-xian-jian-ce.html</link><description># 射线检测
+## 射线的定义
+### 定义一个3d射线，（原点，方向）
+```c#
+Ray r = new Ray(Vector3.zero, Vector3.forward);
+print(r.origin);//原点
+print(r.direction);//方向
+```
+
+### 摄像机发出的射线（屏幕发射）
+`Ray r2 = Camera.main.ScreenPointToRay(Input.mousePosition);
+`
+## 射线检测
+`Ray r3 = new Ray(Vector3.zero, Vector3.forward);`
+### 传入一个射线
+返回值bool 判断是否有检测到对象
+（射线，检测距离，层级，是否忽视碰撞器）
+```c#
+if (Physics.Raycast(r3, 1000, 1 &lt;&lt; LayerMask.NameToLayer('Monster'), QueryTriggerInteraction.UseGlobal))
+{
+    print('检测到');
+}
+```
+### 直接传入起点和方向
+```c#
+if (Physics.Raycast(Vector3.zero, Vector3.forward, 1000, 1 &lt;&lt; LayerMask.NameToLayer('Monster'), QueryTriggerInteraction.UseGlobal))
+{
+    print('检测到');
+}
+```
+
+## 获取检测到的对象信息
+### 传入射线
+物体信息
+`RaycastHit rayInfo;`
+（射线， out进去赋值传出来， 距离， 层级， 是否检测碰撞器）
+```c#
+if (Physics.Raycast(r3, out rayInfo, 1000, 1 &lt;&lt; LayerMask.NameToLayer('Monster'), QueryTriggerInteraction.UseGlobal))
+{
+    print('碰撞到物体检测到信息');
+
+    print('碰撞到物体的名字' + rayInfo.collider.gameObject.name);
+
+    print('碰撞到物体的点' + rayInfo.point);
+
+    //射到的点和平面的法线
+    print('法线信息' + rayInfo.normal);
+
+    print('碰撞的对象位置' + rayInfo.transform.position);
+
+    print('碰撞的对象离射线起点的距离' + rayInfo.distance);
+    //时间 = 距离 / 速度
+    //可以计算自由下落的距离 = 时间 * 重力加速度
+}
+```
+### 直接传入起点和方向
+`if (Physics.Raycast(Vector3.zero, Vector3.forward, out rayInfo, 1000, 1 &lt;&lt; LayerMask.NameToLayer('Monster'), QueryTriggerInteraction.UseGlobal)) { }`
+
+## 获取相交的多个物体对象(穿透)
+### 传入
+```c#
+RaycastHit[] objs = Physics.RaycastAll(r3, 1000, 1 &lt;&lt; LayerMask.NameToLayer('Monster'), QueryTriggerInteraction.UseGlobal);
+for (int i = 0; i &lt; objs.Length; i++)
+{
+    print('碰到的物体名' + objs[i].collider.gameObject.name);
+}
+```
+### 直接传入起点和方向
+`RaycastHit[] objs2 = Physics.RaycastAll(Vector3.zero, Vector3.forward, 1000, 1 &lt;&lt; LayerMask.NameToLayer('Monster'), QueryTriggerInteraction.UseGlobal);`
+
+## 返回碰撞的数量
+```c#
+if (Physics.RaycastNonAlloc(r3, objs, 1000, 1 &lt;&lt; LayerMask.NameToLayer('Monster'), QueryTriggerInteraction.UseGlobal) &gt; 0)
+{
+    print('碰撞数量');
+}
+```。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-she-xian-jian-ce.html</guid><pubDate>Sat, 02 May 2026 10:29:34 +0000</pubDate></item><item><title>【unity基础】范围检测</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-fan-wei-jian-ce.html</link><description># 范围检测
 用于检测一个范围，一般瞬时检测
 ## 立方体检测
 参数：
