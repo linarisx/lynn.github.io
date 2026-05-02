@@ -1,5 +1,52 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Sat, 02 May 2026 09:32:59 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】场景异步加载</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-chang-jing-yi-bu-jia-zai.html</link><description># 场景异步加载
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Sat, 02 May 2026 09:53:05 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】LineRenderer组件</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91LineRenderer-zu-jian.html</link><description># 使用方法
+## 新建空物体并挂在LineRenderer组件
+GameObject obj = new GameObject();
+obj.name = 'line';
+LineRenderer lineRenderer = obj.AddComponent&lt;LineRenderer&gt;();
+
+## 首尾相连
+lineRenderer.loop = true;
+
+## 开始结束宽
+`lineRenderer.startWidth = 0.2f;`
+`lineRenderer.endWidth = 1;`
+
+## 开始结束颜色
+`lineRenderer.startColor = Color.red;`
+`lineRenderer.endColor = Color.white;`
+
+## 设置材质
+```c#
+Material material = Resources.Load&lt;Material&gt;('M');
+lineRenderer.material = material;
+```
+
+## 设置位置
+不设置默认为000
+
+### 点的个数
+`lineRenderer.positionCount = 4;`
+### 设置每个点的位置
+```c#
+lineRenderer.SetPositions(new Vector3[]
+{ new Vector3(0, 0, 0) ,
+  new Vector3(0, 0, 5),
+  new Vector3(5, 0, 5),
+   }
+);
+```
+### 设置单个点的位置 （索引3的点的位置）
+`lineRenderer.SetPosition(3, new Vector3(5, 0, 0));`
+
+### 是否使用世界坐标系
+`lineRenderer.useWorldSpace = true;`
+
+### 是否受光源影响
+`lineRenderer.generateLightingData = true;`
+
+## 注意
+一个物体只能有一个LineRenderer。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91LineRenderer-zu-jian.html</guid><pubDate>Sat, 02 May 2026 09:52:36 +0000</pubDate></item><item><title>【unity基础】场景异步加载</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-chang-jing-yi-bu-jia-zai.html</link><description># 场景异步加载
 ## 场景同步加载
 `SceneManager.LoadScene('GameScene');`
 缺点：切换场景是会删除当前场景的所有对象，，并且去加载下一个场景的相关信息
