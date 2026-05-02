@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Sat, 02 May 2026 09:30:52 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】场景异步加载</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-chang-jing-yi-bu-jia-zai.html</link><description># 场景异步加载
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Sat, 02 May 2026 09:32:59 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】场景异步加载</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-chang-jing-yi-bu-jia-zai.html</link><description># 场景异步加载
 ## 场景同步加载
 `SceneManager.LoadScene('GameScene');`
 缺点：切换场景是会删除当前场景的所有对象，，并且去加载下一个场景的相关信息
@@ -17,6 +17,8 @@ ao.completed += (a) =&gt;//切场景时被删的对象内存依然存在，相�
 
 ## 协程异步加载（可以在加载中执行一些逻辑）
 对象删除/失活，脚本失活协程不会继续执行
+只要异步加载成功后面的代码都执行不了
+所以要让该对象过场景不被删除
 ```c#
 DontDestroyOnLoad(this.gameObject);
 StartCoroutine(LoadScene('Lesson20_Test'));

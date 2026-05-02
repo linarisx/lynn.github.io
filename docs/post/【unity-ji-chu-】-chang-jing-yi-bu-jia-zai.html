@@ -28,6 +28,8 @@ ao.completed += (a) =>//切场景时被删的对象内存依然存在，相对�
 
 ## 协程异步加载（可以在加载中执行一些逻辑）
 对象删除/失活，脚本失活协程不会继续执行
+只要异步加载成功后面的代码都执行不了
+所以要让该对象过场景不被删除
 ```c#
 DontDestroyOnLoad(this.gameObject);
 StartCoroutine(LoadScene('Lesson20_Test'));
@@ -81,6 +83,8 @@ ao.completed += (a) =>//切场景时被删的对象内存依然存在，相对�
 
 ## 协程异步加载（可以在加载中执行一些逻辑）
 对象删除/失活，脚本失活协程不会继续执行
+只要异步加载成功后面的代码都执行不了
+所以要让该对象过场景不被删除
 ```c#
 DontDestroyOnLoad(this.gameObject);
 StartCoroutine(LoadScene('Lesson20_Test'));
@@ -198,7 +202,9 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     <span class="pl-c">//可以自己做地图编辑器，地图编辑器产生的配置文件动态的创建这些资源</span>
 <span class="pl-kos">}</span><span class="pl-kos">;</span></pre></div>
 <h2>协程异步加载（可以在加载中执行一些逻辑）</h2>
-<p>对象删除/失活，脚本失活协程不会继续执行</p>
+<p>对象删除/失活，脚本失活协程不会继续执行<br>
+只要异步加载成功后面的代码都执行不了<br>
+所以要让该对象过场景不被删除</p>
 <div class="highlight highlight-source-cs"><pre class="notranslate"><span class="pl-s1">DontDestroyOnLoad</span><span class="pl-kos">(</span><span class="pl-k">this</span><span class="pl-kos">.</span><span class="pl-s1">gameObject</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 <span class="pl-s1">StartCoroutine</span><span class="pl-kos">(</span><span class="pl-s1">LoadScene</span><span class="pl-kos">(</span><span class="pl-s">"Lesson20_Test"</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
 <div class="highlight highlight-source-cs"><pre class="notranslate"><span class="pl-smi">IEnumerator</span> <span class="pl-en">LoadScene</span><span class="pl-kos">(</span><span class="pl-smi">string</span> <span class="pl-s1">name</span><span class="pl-kos">)</span>

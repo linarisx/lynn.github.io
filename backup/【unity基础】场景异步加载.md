@@ -16,6 +16,8 @@ ao.completed += (a) =>//切场景时被删的对象内存依然存在，相对�
 
 ## 协程异步加载（可以在加载中执行一些逻辑）
 对象删除/失活，脚本失活协程不会继续执行
+只要异步加载成功后面的代码都执行不了
+所以要让该对象过场景不被删除
 ```c#
 DontDestroyOnLoad(this.gameObject);
 StartCoroutine(LoadScene("Lesson20_Test"));
