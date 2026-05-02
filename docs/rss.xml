@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Sat, 02 May 2026 09:10:41 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】Resources的同步与异步加载</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91Resources-de-tong-bu-yu-yi-bu-jia-zai.html</link><description># Resources的同步与异步加载
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Sat, 02 May 2026 09:12:05 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】Resources的加载与卸载</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91Resources-de-jia-zai-yu-xie-zai.html</link><description># Resources的同步与异步加载
 多个resources是可以的，打包时自动合并成一个
 ## 同步加载
 ### 同步加载的不同方式
@@ -89,7 +89,7 @@ IEnumerator Load()
      }
      tex = rq.asset as Texture;//加载结束再使用来绘制
 }
-```。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91Resources-de-tong-bu-yu-yi-bu-jia-zai.html</guid><pubDate>Sat, 02 May 2026 09:10:04 +0000</pubDate></item><item><title>【unity基础】特殊文件</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-te-shu-wen-jian.html</link><description>## 工程路径
+```。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91Resources-de-jia-zai-yu-xie-zai.html</guid><pubDate>Sat, 02 May 2026 09:10:04 +0000</pubDate></item><item><title>【unity基础】特殊文件</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-te-shu-wen-jian.html</link><description>## 工程路径
 实际上就是Assets文件夹
 **`Application.dataPath`**
 只会在编辑时使用
