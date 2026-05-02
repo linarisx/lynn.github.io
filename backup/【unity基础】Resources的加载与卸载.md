@@ -96,15 +96,20 @@ IEnumerator Load()
 ## 资源卸载
 ### 注意
 不能释放GameObject对象，因为会用于实例化对象
+```c#
 GameObject obj = Resources.Load<GameObject>("Cube");
 Resources.UnloadAsset(obj);//不可行，没有实例化的也不行
+```
 
 ### 卸载未使用的资源
 切场景时和GC一起
+```c#
 Resources.UnloadUnusedAssets();
 GC.Collect();//调用GC
+```
 
 ### 卸载方式
+```c#
 if (Input.GetKeyDown(KeyCode.Alpha1))
 {
     print("加载");
@@ -116,3 +121,4 @@ else if (Input.GetKeyDown(KeyCode.Alpha2))
     Resources.UnloadAsset(texture);
     texture = null;//像引用指针一直指着那个资源地址，所以要置空
 }
+```

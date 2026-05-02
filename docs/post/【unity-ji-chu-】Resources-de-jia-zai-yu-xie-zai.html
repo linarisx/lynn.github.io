@@ -108,15 +108,20 @@ IEnumerator Load()
 ## 资源卸载
 ### 注意
 不能释放GameObject对象，因为会用于实例化对象
+```c#
 GameObject obj = Resources.Load<GameObject>('Cube');
 Resources.UnloadAsset(obj);//不可行，没有实例化的也不行
+```
 
 ### 卸载未使用的资源
 切场景时和GC一起
+```c#
 Resources.UnloadUnusedAssets();
 GC.Collect();//调用GC
+```
 
 ### 卸载方式
+```c#
 if (Input.GetKeyDown(KeyCode.Alpha1))
 {
     print('加载');
@@ -127,7 +132,8 @@ else if (Input.GetKeyDown(KeyCode.Alpha2))
     print('卸载');
     Resources.UnloadAsset(texture);
     texture = null;//像引用指针一直指着那个资源地址，所以要置空
-}。">
+}
+```。">
 <meta property="og:title" content="【unity基础】Resources的加载与卸载">
 <meta property="og:description" content="# Resources的加载与卸载
 
@@ -227,15 +233,20 @@ IEnumerator Load()
 ## 资源卸载
 ### 注意
 不能释放GameObject对象，因为会用于实例化对象
+```c#
 GameObject obj = Resources.Load<GameObject>('Cube');
 Resources.UnloadAsset(obj);//不可行，没有实例化的也不行
+```
 
 ### 卸载未使用的资源
 切场景时和GC一起
+```c#
 Resources.UnloadUnusedAssets();
 GC.Collect();//调用GC
+```
 
 ### 卸载方式
+```c#
 if (Input.GetKeyDown(KeyCode.Alpha1))
 {
     print('加载');
@@ -246,7 +257,8 @@ else if (Input.GetKeyDown(KeyCode.Alpha2))
     print('卸载');
     Resources.UnloadAsset(texture);
     texture = null;//像引用指针一直指着那个资源地址，所以要置空
-}。">
+}
+```。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91Resources-de-jia-zai-yu-xie-zai.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/206855738?v=4&size=64">
@@ -396,25 +408,25 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 多个resources是可以的，打包时自动合并成一个</p>
 <h2>资源卸载</h2>
 <h3>注意</h3>
-<p>不能释放GameObject对象，因为会用于实例化对象<br>
-GameObject obj = Resources.Load("Cube");<br>
-Resources.UnloadAsset(obj);//不可行，没有实例化的也不行</p>
+<p>不能释放GameObject对象，因为会用于实例化对象</p>
+<div class="highlight highlight-source-cs"><pre class="notranslate"><span class="pl-smi">GameObject</span> <span class="pl-s1">obj</span> <span class="pl-c1">=</span> <span class="pl-s1">Resources</span><span class="pl-kos">.</span><span class="pl-smi">Load</span><span class="pl-c1">&lt;</span><span class="pl-smi">GameObject</span><span class="pl-c1">&gt;</span><span class="pl-kos">(</span><span class="pl-s">"Cube"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-s1">Resources</span><span class="pl-kos">.</span><span class="pl-en">UnloadAsset</span><span class="pl-kos">(</span><span class="pl-s1">obj</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-c">//不可行，没有实例化的也不行</span></pre></div>
 <h3>卸载未使用的资源</h3>
-<p>切场景时和GC一起<br>
-Resources.UnloadUnusedAssets();<br>
-GC.Collect();//调用GC</p>
+<p>切场景时和GC一起</p>
+<div class="highlight highlight-source-cs"><pre class="notranslate"><span class="pl-s1">Resources</span><span class="pl-kos">.</span><span class="pl-en">UnloadUnusedAssets</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-s1">GC</span><span class="pl-kos">.</span><span class="pl-en">Collect</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-c">//调用GC</span></pre></div>
 <h3>卸载方式</h3>
-<p>if (Input.GetKeyDown(KeyCode.Alpha1))<br>
-{<br>
-print("加载");<br>
-texture = Resources.Load("Texture/2026_4.9");<br>
-}<br>
-else if (Input.GetKeyDown(KeyCode.Alpha2))<br>
-{<br>
-print("卸载");<br>
-Resources.UnloadAsset(texture);<br>
-texture = null;//像引用指针一直指着那个资源地址，所以要置空<br>
-}</p></div>
+<div class="highlight highlight-source-cs"><pre class="notranslate"><span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">Input</span><span class="pl-kos">.</span><span class="pl-en">GetKeyDown</span><span class="pl-kos">(</span><span class="pl-s1">KeyCode</span><span class="pl-kos">.</span><span class="pl-s1">Alpha1</span><span class="pl-kos">)</span><span class="pl-kos">)</span>
+<span class="pl-kos">{</span>
+    <span class="pl-s1">print</span><span class="pl-kos">(</span><span class="pl-s">"加载"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-s1">texture</span> <span class="pl-c1">=</span> <span class="pl-s1">Resources</span><span class="pl-kos">.</span><span class="pl-smi">Load</span><span class="pl-c1">&lt;</span><span class="pl-smi">Texture</span><span class="pl-c1">&gt;</span><span class="pl-kos">(</span><span class="pl-s">"Texture/2026_4.9"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span>
+<span class="pl-k">else</span> <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">Input</span><span class="pl-kos">.</span><span class="pl-en">GetKeyDown</span><span class="pl-kos">(</span><span class="pl-s1">KeyCode</span><span class="pl-kos">.</span><span class="pl-s1">Alpha2</span><span class="pl-kos">)</span><span class="pl-kos">)</span>
+<span class="pl-kos">{</span>
+    <span class="pl-s1">print</span><span class="pl-kos">(</span><span class="pl-s">"卸载"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-s1">Resources</span><span class="pl-kos">.</span><span class="pl-en">UnloadAsset</span><span class="pl-kos">(</span><span class="pl-s1">texture</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-s1">texture</span> <span class="pl-c1">=</span> <span class="pl-c1">null</span><span class="pl-kos">;</span><span class="pl-c">//像引用指针一直指着那个资源地址，所以要置空</span>
+<span class="pl-kos">}</span></pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
