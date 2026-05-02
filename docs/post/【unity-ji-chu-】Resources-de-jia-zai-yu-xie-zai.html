@@ -10,8 +10,8 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="# Resources的同步与异步加载
-多个resources是可以的，打包时自动合并成一个
+<meta name="description" content="# Resources的加载与卸载
+
 ## 同步加载
 ### 同步加载的不同方式
 `Object obj = Resources.Load('Cube');`
@@ -60,7 +60,7 @@ foreach(Object item in objs)
 硬盘把数据读取到内存中是需要计算的，如果加载的资源过大会导致卡顿
 一步加载中，通过后台新开线程同步加载，解决卡顿
 
-## 通过后台线程异步加载
+### 通过后台线程异步加载
 ResourceRequest的父类有个监听事件
 ```c#
 ResourceRequest rq = Resources.LoadAsync<Texture>('Texture/2026_4.9');
@@ -75,7 +75,7 @@ void IsOver(AsyncOperation ac)
     print(Time.frameCount);//帧
 }
 ```
-## 通过协程异步加载
+### 通过协程异步加载
 ```c#
 StartCoroutine(Load());
 IEnumerator Load()
@@ -100,10 +100,37 @@ IEnumerator Load()
      }
      tex = rq.asset as Texture;//加载结束再使用来绘制
 }
-```。">
+```
+## 其他
+重复加载同个资源不消耗内存，消耗性能
+多个resources是可以的，打包时自动合并成一个
+
+## 资源卸载
+### 注意
+不能释放GameObject对象，因为会用于实例化对象
+GameObject obj = Resources.Load<GameObject>('Cube');
+Resources.UnloadAsset(obj);//不可行，没有实例化的也不行
+
+### 卸载未使用的资源
+切场景时和GC一起
+Resources.UnloadUnusedAssets();
+GC.Collect();//调用GC
+
+### 卸载方式
+if (Input.GetKeyDown(KeyCode.Alpha1))
+{
+    print('加载');
+    texture = Resources.Load<Texture>('Texture/2026_4.9');
+}
+else if (Input.GetKeyDown(KeyCode.Alpha2))
+{
+    print('卸载');
+    Resources.UnloadAsset(texture);
+    texture = null;//像引用指针一直指着那个资源地址，所以要置空
+}。">
 <meta property="og:title" content="【unity基础】Resources的加载与卸载">
-<meta property="og:description" content="# Resources的同步与异步加载
-多个resources是可以的，打包时自动合并成一个
+<meta property="og:description" content="# Resources的加载与卸载
+
 ## 同步加载
 ### 同步加载的不同方式
 `Object obj = Resources.Load('Cube');`
@@ -152,7 +179,7 @@ foreach(Object item in objs)
 硬盘把数据读取到内存中是需要计算的，如果加载的资源过大会导致卡顿
 一步加载中，通过后台新开线程同步加载，解决卡顿
 
-## 通过后台线程异步加载
+### 通过后台线程异步加载
 ResourceRequest的父类有个监听事件
 ```c#
 ResourceRequest rq = Resources.LoadAsync<Texture>('Texture/2026_4.9');
@@ -167,7 +194,7 @@ void IsOver(AsyncOperation ac)
     print(Time.frameCount);//帧
 }
 ```
-## 通过协程异步加载
+### 通过协程异步加载
 ```c#
 StartCoroutine(Load());
 IEnumerator Load()
@@ -192,7 +219,34 @@ IEnumerator Load()
      }
      tex = rq.asset as Texture;//加载结束再使用来绘制
 }
-```。">
+```
+## 其他
+重复加载同个资源不消耗内存，消耗性能
+多个resources是可以的，打包时自动合并成一个
+
+## 资源卸载
+### 注意
+不能释放GameObject对象，因为会用于实例化对象
+GameObject obj = Resources.Load<GameObject>('Cube');
+Resources.UnloadAsset(obj);//不可行，没有实例化的也不行
+
+### 卸载未使用的资源
+切场景时和GC一起
+Resources.UnloadUnusedAssets();
+GC.Collect();//调用GC
+
+### 卸载方式
+if (Input.GetKeyDown(KeyCode.Alpha1))
+{
+    print('加载');
+    texture = Resources.Load<Texture>('Texture/2026_4.9');
+}
+else if (Input.GetKeyDown(KeyCode.Alpha2))
+{
+    print('卸载');
+    Resources.UnloadAsset(texture);
+    texture = null;//像引用指针一直指着那个资源地址，所以要置空
+}。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91Resources-de-jia-zai-yu-xie-zai.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/206855738?v=4&size=64">
@@ -263,8 +317,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><h1>Resources的同步与异步加载</h1>
-<p>多个resources是可以的，打包时自动合并成一个</p>
+<div class="markdown-body" id="postBody"><h1>Resources的加载与卸载</h1>
 <h2>同步加载</h2>
 <h3>同步加载的不同方式</h3>
 <p><code class="notranslate">Object obj = Resources.Load("Cube");</code><br>
@@ -303,7 +356,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <h3>解决的问题</h3>
 <p>硬盘把数据读取到内存中是需要计算的，如果加载的资源过大会导致卡顿<br>
 一步加载中，通过后台新开线程同步加载，解决卡顿</p>
-<h2>通过后台线程异步加载</h2>
+<h3>通过后台线程异步加载</h3>
 <p>ResourceRequest的父类有个监听事件</p>
 <div class="highlight highlight-source-cs"><pre class="notranslate"><span class="pl-smi">ResourceRequest</span> <span class="pl-s1">rq</span> <span class="pl-c1">=</span> <span class="pl-s1">Resources</span><span class="pl-kos">.</span><span class="pl-smi">LoadAsync</span><span class="pl-c1">&lt;</span><span class="pl-smi">Texture</span><span class="pl-c1">&gt;</span><span class="pl-kos">(</span><span class="pl-s">"Texture/2026_4.9"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 <span class="pl-s1">rq</span><span class="pl-kos">.</span><span class="pl-s1">completed</span> <span class="pl-c1">+=</span> <span class="pl-s1">IsOver</span><span class="pl-kos">;</span><span class="pl-c">//如果加载完成，就在内部invoke执行isOver</span>
@@ -316,7 +369,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     <span class="pl-s1">tex</span>  <span class="pl-c1">=</span> <span class="pl-kos">(</span><span class="pl-s1">ac</span> <span class="pl-k">as</span> <span class="pl-smi">ResourceRequest</span><span class="pl-kos">)</span><span class="pl-kos">.</span><span class="pl-s1">asset</span> <span class="pl-k">as</span> <span class="pl-smi">Texture</span><span class="pl-kos">;</span>
     <span class="pl-s1">print</span><span class="pl-kos">(</span><span class="pl-s1">Time</span><span class="pl-kos">.</span><span class="pl-s1">frameCount</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-c">//帧</span>
 <span class="pl-kos">}</span></pre></div>
-<h2>通过协程异步加载</h2>
+<h3>通过协程异步加载</h3>
 <div class="highlight highlight-source-cs"><pre class="notranslate"><span class="pl-s1">StartCoroutine</span><span class="pl-kos">(</span><span class="pl-s1">Load</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 <span class="pl-smi">IEnumerator</span> <span class="pl-en">Load</span><span class="pl-kos">(</span><span class="pl-kos">)</span>
 <span class="pl-kos">{</span>
@@ -337,7 +390,31 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
          <span class="pl-k">yield</span> <span class="pl-k">return</span> <span class="pl-c1">null</span><span class="pl-kos">;</span><span class="pl-c">//下一帧执行</span>
      <span class="pl-kos">}</span>
      <span class="pl-s1">tex</span> <span class="pl-c1">=</span> <span class="pl-s1">rq</span><span class="pl-kos">.</span><span class="pl-s1">asset</span> <span class="pl-k">as</span> <span class="pl-smi">Texture</span><span class="pl-kos">;</span><span class="pl-c">//加载结束再使用来绘制</span>
-<span class="pl-kos">}</span></pre></div></div>
+<span class="pl-kos">}</span></pre></div>
+<h2>其他</h2>
+<p>重复加载同个资源不消耗内存，消耗性能<br>
+多个resources是可以的，打包时自动合并成一个</p>
+<h2>资源卸载</h2>
+<h3>注意</h3>
+<p>不能释放GameObject对象，因为会用于实例化对象<br>
+GameObject obj = Resources.Load("Cube");<br>
+Resources.UnloadAsset(obj);//不可行，没有实例化的也不行</p>
+<h3>卸载未使用的资源</h3>
+<p>切场景时和GC一起<br>
+Resources.UnloadUnusedAssets();<br>
+GC.Collect();//调用GC</p>
+<h3>卸载方式</h3>
+<p>if (Input.GetKeyDown(KeyCode.Alpha1))<br>
+{<br>
+print("加载");<br>
+texture = Resources.Load("Texture/2026_4.9");<br>
+}<br>
+else if (Input.GetKeyDown(KeyCode.Alpha2))<br>
+{<br>
+print("卸载");<br>
+Resources.UnloadAsset(texture);<br>
+texture = null;//像引用指针一直指着那个资源地址，所以要置空<br>
+}</p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>

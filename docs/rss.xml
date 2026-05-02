@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Sat, 02 May 2026 09:12:05 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】Resources的加载与卸载</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91Resources-de-jia-zai-yu-xie-zai.html</link><description># Resources的同步与异步加载
-多个resources是可以的，打包时自动合并成一个
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Sat, 02 May 2026 09:15:40 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】Resources的加载与卸载</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91Resources-de-jia-zai-yu-xie-zai.html</link><description># Resources的加载与卸载
+
 ## 同步加载
 ### 同步加载的不同方式
 `Object obj = Resources.Load('Cube');`
@@ -49,7 +49,7 @@ foreach(Object item in objs)
 硬盘把数据读取到内存中是需要计算的，如果加载的资源过大会导致卡顿
 一步加载中，通过后台新开线程同步加载，解决卡顿
 
-## 通过后台线程异步加载
+### 通过后台线程异步加载
 ResourceRequest的父类有个监听事件
 ```c#
 ResourceRequest rq = Resources.LoadAsync&lt;Texture&gt;('Texture/2026_4.9');
@@ -64,7 +64,7 @@ void IsOver(AsyncOperation ac)
     print(Time.frameCount);//帧
 }
 ```
-## 通过协程异步加载
+### 通过协程异步加载
 ```c#
 StartCoroutine(Load());
 IEnumerator Load()
@@ -89,7 +89,34 @@ IEnumerator Load()
      }
      tex = rq.asset as Texture;//加载结束再使用来绘制
 }
-```。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91Resources-de-jia-zai-yu-xie-zai.html</guid><pubDate>Sat, 02 May 2026 09:10:04 +0000</pubDate></item><item><title>【unity基础】特殊文件</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-te-shu-wen-jian.html</link><description>## 工程路径
+```
+## 其他
+重复加载同个资源不消耗内存，消耗性能
+多个resources是可以的，打包时自动合并成一个
+
+## 资源卸载
+### 注意
+不能释放GameObject对象，因为会用于实例化对象
+GameObject obj = Resources.Load&lt;GameObject&gt;('Cube');
+Resources.UnloadAsset(obj);//不可行，没有实例化的也不行
+
+### 卸载未使用的资源
+切场景时和GC一起
+Resources.UnloadUnusedAssets();
+GC.Collect();//调用GC
+
+### 卸载方式
+if (Input.GetKeyDown(KeyCode.Alpha1))
+{
+    print('加载');
+    texture = Resources.Load&lt;Texture&gt;('Texture/2026_4.9');
+}
+else if (Input.GetKeyDown(KeyCode.Alpha2))
+{
+    print('卸载');
+    Resources.UnloadAsset(texture);
+    texture = null;//像引用指针一直指着那个资源地址，所以要置空
+}。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91Resources-de-jia-zai-yu-xie-zai.html</guid><pubDate>Sat, 02 May 2026 09:10:04 +0000</pubDate></item><item><title>【unity基础】特殊文件</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-te-shu-wen-jian.html</link><description>## 工程路径
 实际上就是Assets文件夹
 **`Application.dataPath`**
 只会在编辑时使用

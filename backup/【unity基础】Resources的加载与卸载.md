@@ -1,5 +1,5 @@
-# Resources的同步与异步加载
-多个resources是可以的，打包时自动合并成一个
+# Resources的加载与卸载
+
 ## 同步加载
 ### 同步加载的不同方式
 `Object obj = Resources.Load("Cube");`
@@ -48,7 +48,7 @@ foreach(Object item in objs)
 硬盘把数据读取到内存中是需要计算的，如果加载的资源过大会导致卡顿
 一步加载中，通过后台新开线程同步加载，解决卡顿
 
-## 通过后台线程异步加载
+### 通过后台线程异步加载
 ResourceRequest的父类有个监听事件
 ```c#
 ResourceRequest rq = Resources.LoadAsync<Texture>("Texture/2026_4.9");
@@ -63,7 +63,7 @@ void IsOver(AsyncOperation ac)
     print(Time.frameCount);//帧
 }
 ```
-## 通过协程异步加载
+### 通过协程异步加载
 ```c#
 StartCoroutine(Load());
 IEnumerator Load()
@@ -89,3 +89,30 @@ IEnumerator Load()
      tex = rq.asset as Texture;//加载结束再使用来绘制
 }
 ```
+## 其他
+重复加载同个资源不消耗内存，消耗性能
+多个resources是可以的，打包时自动合并成一个
+
+## 资源卸载
+### 注意
+不能释放GameObject对象，因为会用于实例化对象
+GameObject obj = Resources.Load<GameObject>("Cube");
+Resources.UnloadAsset(obj);//不可行，没有实例化的也不行
+
+### 卸载未使用的资源
+切场景时和GC一起
+Resources.UnloadUnusedAssets();
+GC.Collect();//调用GC
+
+### 卸载方式
+if (Input.GetKeyDown(KeyCode.Alpha1))
+{
+    print("加载");
+    texture = Resources.Load<Texture>("Texture/2026_4.9");
+}
+else if (Input.GetKeyDown(KeyCode.Alpha2))
+{
+    print("卸载");
+    Resources.UnloadAsset(texture);
+    texture = null;//像引用指针一直指着那个资源地址，所以要置空
+}
