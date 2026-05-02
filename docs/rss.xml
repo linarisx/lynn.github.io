@@ -1,5 +1,56 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Sat, 02 May 2026 09:18:43 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】Resources的加载与卸载</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91Resources-de-jia-zai-yu-xie-zai.html</link><description># Resources的加载与卸载
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Sat, 02 May 2026 09:30:52 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】场景异步加载</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-chang-jing-yi-bu-jia-zai.html</link><description># 场景异步加载
+## 场景同步加载
+`SceneManager.LoadScene('GameScene');`
+缺点：切换场景是会删除当前场景的所有对象，，并且去加载下一个场景的相关信息
+如果当前场景对象过多或者下一个场景对象过多，会耗时卡顿
+
+## 事件回调函数加载
+```c#
+AsyncOperation ao = SceneManager.LoadSceneAsync('Lesson20_Test');
+ao.completed += (a) =&gt;//切场景时被删的对象内存依然存在，相对于事件存了函数引用，在GC时这个事件不会被释放，所以才可以一直监听
+{
+    print('加载完成');
+    //可以自己做地图编辑器，地图编辑器产生的配置文件动态的创建这些资源
+};
+```
+
+## 协程异步加载（可以在加载中执行一些逻辑）
+对象删除/失活，脚本失活协程不会继续执行
+```c#
+DontDestroyOnLoad(this.gameObject);
+StartCoroutine(LoadScene('Lesson20_Test'));
+```
+```c#
+IEnumerator LoadScene(string name)
+{
+    AsyncOperation ao = SceneManager.LoadSceneAsync(name);
+    print('加载中');
+    yield return ao;
+    //过场景不被删除才能有下一步
+    //加载完执行
+    print('加载完');
+}
+```
+```c#
+IEnumerator LoadScene(string name)
+{
+ AsyncOperation ao = SceneManager.LoadSceneAsync(name);
+    while (!ao.isDone)//没结束
+    {
+        print(ao.progress);//打印进度（0~1） 不准确 不常用
+        yield return null;
+        //做一些进度条
+    }
+    循环结束，场景加载结束，进度条顶满，隐藏进度条
+}
+//第二种 自定义进度条规则
+yield return ao;
+//场景加载结束 进度条20%
+//加载怪物 40%
+//动态加载 场景模型 100%
+//隐藏进度条
+```。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-chang-jing-yi-bu-jia-zai.html</guid><pubDate>Sat, 02 May 2026 09:30:26 +0000</pubDate></item><item><title>【unity基础】Resources的加载与卸载</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91Resources-de-jia-zai-yu-xie-zai.html</link><description># Resources的加载与卸载
 
 ## 同步加载
 ### 同步加载的不同方式
