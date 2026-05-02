@@ -102,6 +102,7 @@ IEnumerator Load()
 }
 ```
 ## 其他
+加载资源第一次就存到内存中了
 重复加载同个资源不消耗内存，消耗性能
 多个resources是可以的，打包时自动合并成一个
 
@@ -227,6 +228,7 @@ IEnumerator Load()
 }
 ```
 ## 其他
+加载资源第一次就存到内存中了
 重复加载同个资源不消耗内存，消耗性能
 多个resources是可以的，打包时自动合并成一个
 
@@ -404,7 +406,8 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
      <span class="pl-s1">tex</span> <span class="pl-c1">=</span> <span class="pl-s1">rq</span><span class="pl-kos">.</span><span class="pl-s1">asset</span> <span class="pl-k">as</span> <span class="pl-smi">Texture</span><span class="pl-kos">;</span><span class="pl-c">//加载结束再使用来绘制</span>
 <span class="pl-kos">}</span></pre></div>
 <h2>其他</h2>
-<p>重复加载同个资源不消耗内存，消耗性能<br>
+<p>加载资源第一次就存到内存中了<br>
+重复加载同个资源不消耗内存，消耗性能<br>
 多个resources是可以的，打包时自动合并成一个</p>
 <h2>资源卸载</h2>
 <h3>注意</h3>
