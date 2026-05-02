@@ -38,10 +38,10 @@ lineRenderer.SetPositions(new Vector3[]
 ### 设置单个点的位置 （索引3的点的位置）
 `lineRenderer.SetPosition(3, new Vector3(5, 0, 0));`
 
-### 是否使用世界坐标系
+## 是否使用世界坐标系
 `lineRenderer.useWorldSpace = true;`
 
-### 是否受光源影响
+## 是否受光源影响
 `lineRenderer.generateLightingData = true;`
 
 ## 注意
