@@ -37,7 +37,28 @@ print(readFileInfo);//正常读取
 ```
 使用Json字符串内容 反序列化转换成类对象
 `FireInfo fireData = JsonUtility.FromJson<FireInfo>(readFileInfo);`
-。">
+
+注意必须是对象，如果想直接反序列数据结构得把这个数组再包裹一层对象
+注意json文件必须是UTF-8
+
+## LitJson
+### 序列化
+```c#
+string strJson = JsonMapper.ToJson(p);
+File.WriteAllText(Application.persistentDataPath + '/' + fileName + '.json', strJson);//写进json文件
+```
+
+### 反序列化
+```c#
+string strJson = File.ReadAllText(Application.persistentDataPath + '/' + fileName + '.json');
+JsonMapper.ToObject<PlayerInfo2>(strJson);
+```
+LitJson虽然支持字典但是
+注意键如果是int类型，会出问题，因为json里面默认转成字符串，再次读取数据之后反序列化会出问题因为无法创建int类型的键
+
+<img width='373' height='92' alt='Image' src='https://github.com/user-attachments/assets/33181a4f-c354-4cf7-9bd3-62f9ecf0d18f' />
+
+<img width='592' height='171' alt='Image' src='https://github.com/user-attachments/assets/9de68222-5854-4c17-8d8b-cae22ce102db' />。">
 <meta property="og:title" content="Json">
 <meta property="og:description" content="# Json
 ## JsonUtility
@@ -66,7 +87,28 @@ print(readFileInfo);//正常读取
 ```
 使用Json字符串内容 反序列化转换成类对象
 `FireInfo fireData = JsonUtility.FromJson<FireInfo>(readFileInfo);`
-。">
+
+注意必须是对象，如果想直接反序列数据结构得把这个数组再包裹一层对象
+注意json文件必须是UTF-8
+
+## LitJson
+### 序列化
+```c#
+string strJson = JsonMapper.ToJson(p);
+File.WriteAllText(Application.persistentDataPath + '/' + fileName + '.json', strJson);//写进json文件
+```
+
+### 反序列化
+```c#
+string strJson = File.ReadAllText(Application.persistentDataPath + '/' + fileName + '.json');
+JsonMapper.ToObject<PlayerInfo2>(strJson);
+```
+LitJson虽然支持字典但是
+注意键如果是int类型，会出问题，因为json里面默认转成字符串，再次读取数据之后反序列化会出问题因为无法创建int类型的键
+
+<img width='373' height='92' alt='Image' src='https://github.com/user-attachments/assets/33181a4f-c354-4cf7-9bd3-62f9ecf0d18f' />
+
+<img width='592' height='171' alt='Image' src='https://github.com/user-attachments/assets/9de68222-5854-4c17-8d8b-cae22ce102db' />。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://linarisx.github.io/lynn.github.io/post/Json.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/206855738?v=4&size=64">
@@ -154,7 +196,20 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <div class="highlight highlight-source-cs"><pre class="notranslate"><span class="pl-smi">string</span> <span class="pl-s1">readFileInfo</span>  <span class="pl-c1">=</span> <span class="pl-s1">File</span><span class="pl-kos">.</span><span class="pl-en">ReadAllText</span><span class="pl-kos">(</span><span class="pl-s1">Application</span><span class="pl-kos">.</span><span class="pl-s1">streamingAssetsPath</span> <span class="pl-c1">+</span> <span class="pl-s">"/FireData2.json"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 <span class="pl-s1">print</span><span class="pl-kos">(</span><span class="pl-s1">readFileInfo</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-c">//正常读取</span></pre></div>
 <p>使用Json字符串内容 反序列化转换成类对象<br>
-<code class="notranslate">FireInfo fireData = JsonUtility.FromJson&lt;FireInfo&gt;(readFileInfo);</code></p></div>
+<code class="notranslate">FireInfo fireData = JsonUtility.FromJson&lt;FireInfo&gt;(readFileInfo);</code></p>
+<p>注意必须是对象，如果想直接反序列数据结构得把这个数组再包裹一层对象<br>
+注意json文件必须是UTF-8</p>
+<h2>LitJson</h2>
+<h3>序列化</h3>
+<div class="highlight highlight-source-cs"><pre class="notranslate"><span class="pl-smi">string</span> <span class="pl-s1">strJson</span> <span class="pl-c1">=</span> <span class="pl-s1">JsonMapper</span><span class="pl-kos">.</span><span class="pl-en">ToJson</span><span class="pl-kos">(</span><span class="pl-s1">p</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-s1">File</span><span class="pl-kos">.</span><span class="pl-en">WriteAllText</span><span class="pl-kos">(</span><span class="pl-s1">Application</span><span class="pl-kos">.</span><span class="pl-s1">persistentDataPath</span> <span class="pl-c1">+</span> <span class="pl-s">"/"</span> <span class="pl-c1">+</span> <span class="pl-s1">fileName</span> <span class="pl-c1">+</span> <span class="pl-s">".json"</span><span class="pl-kos">,</span> <span class="pl-s1">strJson</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-c">//写进json文件</span></pre></div>
+<h3>反序列化</h3>
+<div class="highlight highlight-source-cs"><pre class="notranslate"><span class="pl-smi">string</span> <span class="pl-s1">strJson</span> <span class="pl-c1">=</span> <span class="pl-s1">File</span><span class="pl-kos">.</span><span class="pl-en">ReadAllText</span><span class="pl-kos">(</span><span class="pl-s1">Application</span><span class="pl-kos">.</span><span class="pl-s1">persistentDataPath</span> <span class="pl-c1">+</span> <span class="pl-s">"/"</span> <span class="pl-c1">+</span> <span class="pl-s1">fileName</span> <span class="pl-c1">+</span> <span class="pl-s">".json"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-s1">JsonMapper</span><span class="pl-kos">.</span><span class="pl-smi">ToObject</span><span class="pl-c1">&lt;</span><span class="pl-smi">PlayerInfo2</span><span class="pl-c1">&gt;</span><span class="pl-kos">(</span><span class="pl-s1">strJson</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<p>LitJson虽然支持字典但是<br>
+注意键如果是int类型，会出问题，因为json里面默认转成字符串，再次读取数据之后反序列化会出问题因为无法创建int类型的键</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/33181a4f-c354-4cf7-9bd3-62f9ecf0d18f"><img width="373" height="92" alt="Image" src="https://github.com/user-attachments/assets/33181a4f-c354-4cf7-9bd3-62f9ecf0d18f" style="max-width: 100%; height: auto; max-height: 92px;; aspect-ratio: 373 / 92; background-color: var(--bgColor-muted); border-radius: 6px; display: block" class="js-gh-image-fallback"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/9de68222-5854-4c17-8d8b-cae22ce102db"><img width="592" height="171" alt="Image" src="https://github.com/user-attachments/assets/9de68222-5854-4c17-8d8b-cae22ce102db" style="max-width: 100%; height: auto; max-height: 171px;; aspect-ratio: 592 / 171; background-color: var(--bgColor-muted); border-radius: 6px; display: block" class="js-gh-image-fallback"></a></p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>

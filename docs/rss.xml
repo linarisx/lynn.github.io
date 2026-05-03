@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Sun, 03 May 2026 10:30:51 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>Json</title><link>https://linarisx.github.io/lynn.github.io/post/Json.html</link><description># Json
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Sun, 03 May 2026 10:41:33 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>Json</title><link>https://linarisx.github.io/lynn.github.io/post/Json.html</link><description># Json
 ## JsonUtility
 &lt;img width='374' height='70' alt='Image' src='https://github.com/user-attachments/assets/01ee836f-44ba-4364-9e24-405d1d052036' /&gt;
 
@@ -26,7 +26,28 @@ print(readFileInfo);//正常读取
 ```
 使用Json字符串内容 反序列化转换成类对象
 `FireInfo fireData = JsonUtility.FromJson&lt;FireInfo&gt;(readFileInfo);`
-。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/Json.html</guid><pubDate>Sun, 03 May 2026 10:30:23 +0000</pubDate></item><item><title>【unity基础】射线检测</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-she-xian-jian-ce.html</link><description># 射线检测
+
+注意必须是对象，如果想直接反序列数据结构得把这个数组再包裹一层对象
+注意json文件必须是UTF-8
+
+## LitJson
+### 序列化
+```c#
+string strJson = JsonMapper.ToJson(p);
+File.WriteAllText(Application.persistentDataPath + '/' + fileName + '.json', strJson);//写进json文件
+```
+
+### 反序列化
+```c#
+string strJson = File.ReadAllText(Application.persistentDataPath + '/' + fileName + '.json');
+JsonMapper.ToObject&lt;PlayerInfo2&gt;(strJson);
+```
+LitJson虽然支持字典但是
+注意键如果是int类型，会出问题，因为json里面默认转成字符串，再次读取数据之后反序列化会出问题因为无法创建int类型的键
+
+&lt;img width='373' height='92' alt='Image' src='https://github.com/user-attachments/assets/33181a4f-c354-4cf7-9bd3-62f9ecf0d18f' /&gt;
+
+&lt;img width='592' height='171' alt='Image' src='https://github.com/user-attachments/assets/9de68222-5854-4c17-8d8b-cae22ce102db' /&gt;。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/Json.html</guid><pubDate>Sun, 03 May 2026 10:30:23 +0000</pubDate></item><item><title>【unity基础】射线检测</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-she-xian-jian-ce.html</link><description># 射线检测
 ## 射线的定义
 ### 定义一个3d射线，（原点，方向）
 ```c#
