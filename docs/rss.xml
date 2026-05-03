@@ -1,5 +1,32 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Sat, 02 May 2026 10:30:05 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>【unity基础】射线检测</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-she-xian-jian-ce.html</link><description># 射线检测
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Bolg</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Bolg</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Sun, 03 May 2026 10:30:51 +0000</lastBuildDate><managingEditor>Lin's Bolg</managingEditor><ttl>60</ttl><webMaster>Lin's Bolg</webMaster><item><title>Json</title><link>https://linarisx.github.io/lynn.github.io/post/Json.html</link><description># Json
+## JsonUtility
+&lt;img width='374' height='70' alt='Image' src='https://github.com/user-attachments/assets/01ee836f-44ba-4364-9e24-405d1d052036' /&gt;
+
+### 序列化
+**`JsonUtility.ToJson(data)`**
+把内存中的数据存储到硬盘上
+
+把一串类对象的数据序列化为Json字符串
+这个Json字符串可以写入硬盘中
+
+&lt;img width='556' height='353' alt='Image' src='https://github.com/user-attachments/assets/604c9d0e-1209-4514-bff1-edaef08cb80c' /&gt;
+
+
+&lt;img width='432' height='117' alt='Image' src='https://github.com/user-attachments/assets/27a830e0-ad4d-4f96-836e-2f9266871001' /&gt;
+
+### 反序列化
+**`JsonUtility.FromJson&lt;FireInfo&gt;(字符串);`**
+把硬盘的数据读取到内存中
+
+读取文件中的Json字符串
+```c#
+string readFileInfo  = File.ReadAllText(Application.streamingAssetsPath + '/FireData2.json');
+print(readFileInfo);//正常读取
+```
+使用Json字符串内容 反序列化转换成类对象
+`FireInfo fireData = JsonUtility.FromJson&lt;FireInfo&gt;(readFileInfo);`
+。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/Json.html</guid><pubDate>Sun, 03 May 2026 10:30:23 +0000</pubDate></item><item><title>【unity基础】射线检测</title><link>https://linarisx.github.io/lynn.github.io/post/%E3%80%90unity-ji-chu-%E3%80%91-she-xian-jian-ce.html</link><description># 射线检测
 ## 射线的定义
 ### 定义一个3d射线，（原点，方向）
 ```c#
