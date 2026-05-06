@@ -1,5 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Blog</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Sun, 03 May 2026 10:42:56 +0000</lastBuildDate><managingEditor>Lin's Blog</managingEditor><ttl>60</ttl><webMaster>Lin's Blog</webMaster><item><title>Json</title><link>https://linarisx.github.io/lynn.github.io/post/Json.html</link><description># Json
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Blog</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Wed, 06 May 2026 07:45:56 +0000</lastBuildDate><managingEditor>Lin's Blog</managingEditor><ttl>60</ttl><webMaster>Lin's Blog</webMaster><item><title>音乐音效设置的制作</title><link>https://linarisx.github.io/lynn.github.io/post/yin-le-yin-xiao-she-zhi-de-zhi-zuo.html</link><description># 思路
+制作好音乐数据和面板
+之后再设置页面逻辑
+
+## 数据管理类单例模式
+统一来管理数据的存储读取
+
+## 背景音乐挂在空对象，并且需要一个脚本来设置音量的大小
+### 初始化音量
+游戏一开始就设置好音量，数据来自数据管理类（也就是之前存储的）
+### 方法提供给面板快捷设置（制作成单例模式脚本）
+
+1. 设置音量大小
+2. 是否开启
+
+## 在面板通过控件
+### 初始化空间的音量
+
+1. 一点开面板就设置好控件大小，数据来自数据管理类（也就是之前存储的）
+2. 设置背景音乐的大小
+3. 更改数据
+4. 保存数据（统一在某个按键存储）。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/yin-le-yin-xiao-she-zhi-de-zhi-zuo.html</guid><pubDate>Wed, 06 May 2026 07:45:28 +0000</pubDate></item><item><title>Json</title><link>https://linarisx.github.io/lynn.github.io/post/Json.html</link><description># Json
 ## JsonUtility
 &lt;img width='374' height='70' alt='Image' src='https://github.com/user-attachments/assets/01ee836f-44ba-4364-9e24-405d1d052036' /&gt;
 
