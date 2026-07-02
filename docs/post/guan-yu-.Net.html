@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/206855738?v=4&size=64"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content=".Net是微软提供的技术平台的代号
+
+**框架体系 ：**.Net Framework、 .Net core、 mono等
+**开发语言：**C# VB F#等等
+
+微软做.Net平台的目的：跨语言、跨平台
+
+**如何实现跨语言**
+
+<img width='1612' height='673' alt='Image' src='https://github.com/user-attachments/assets/c35b7071-f6c2-4bee-9457-f971ac5e7438' />
+
+CLS(common language specification)，公共语言规范
+只要所有语言都遵守 CLS 规则，它们写出来的代码编译后都能变成中间语言（IL），所以可以互相调用
+
+CLI (Common Language Infrastructure)，公共语言基础结构
+整个 .NET运行体系标准，国际工业标准
+
+CTS (Common Type System)，公共类型系统
+所有 .NET 语言必须遵守的“数据类型统一规则”，CLS是CTS的子级
+int 在所有语言中必须统一：
+System.Int32
+string 必须统一：
+System.String
+bool 必须统一：
+System.Boolean
+
+**如何实现跨平台**
+**.Net Framework框架** 2002
+主要用于开发window下的应用程序，部分开源
+
+<img width='1704' height='793' alt='Image' src='https://github.com/user-attachments/assets/0d997240-c80c-40fd-ae4a-5258140deca2' />
+不同语言使用类库-->编译-->生成程序集(.dll(IL 元数据 资源) .exe)-->CLR(负责运行管理)-->JIT(在CLR里面，翻译机器码)-->window
+
+CLR(common language runtime)，公共语言进行时
+微软写好的代码，用来管理我们写的代码。">
+<meta property="og:title" content="关于.Net">
+<meta property="og:description" content=".Net是微软提供的技术平台的代号
+
+**框架体系 ：**.Net Framework、 .Net core、 mono等
+**开发语言：**C# VB F#等等
+
+微软做.Net平台的目的：跨语言、跨平台
+
+**如何实现跨语言**
+
+<img width='1612' height='673' alt='Image' src='https://github.com/user-attachments/assets/c35b7071-f6c2-4bee-9457-f971ac5e7438' />
+
+CLS(common language specification)，公共语言规范
+只要所有语言都遵守 CLS 规则，它们写出来的代码编译后都能变成中间语言（IL），所以可以互相调用
+
+CLI (Common Language Infrastructure)，公共语言基础结构
+整个 .NET运行体系标准，国际工业标准
+
+CTS (Common Type System)，公共类型系统
+所有 .NET 语言必须遵守的“数据类型统一规则”，CLS是CTS的子级
+int 在所有语言中必须统一：
+System.Int32
+string 必须统一：
+System.String
+bool 必须统一：
+System.Boolean
+
+**如何实现跨平台**
+**.Net Framework框架** 2002
+主要用于开发window下的应用程序，部分开源
+
+<img width='1704' height='793' alt='Image' src='https://github.com/user-attachments/assets/0d997240-c80c-40fd-ae4a-5258140deca2' />
+不同语言使用类库-->编译-->生成程序集(.dll(IL 元数据 资源) .exe)-->CLR(负责运行管理)-->JIT(在CLR里面，翻译机器码)-->window
+
+CLR(common language runtime)，公共语言进行时
+微软写好的代码，用来管理我们写的代码。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://linarisx.github.io/lynn.github.io/post/guan-yu-.Net.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/206855738?v=4&size=64">
+<title>关于.Net</title>
+
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">关于.Net</h1>
+<div class="title-right">
+    <a href="https://linarisx.github.io/lynn.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/linarisx/lynn.github.io/issues/37" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><p>.Net是微软提供的技术平台的代号</p>
+<p><strong>框架体系 ：</strong>.Net Framework、 .Net core、 mono等<br>
+**开发语言：**C# VB F#等等</p>
+<p>微软做.Net平台的目的：跨语言、跨平台</p>
+<p><strong>如何实现跨语言</strong></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/c35b7071-f6c2-4bee-9457-f971ac5e7438"><img width="1612" height="673" alt="Image" src="https://github.com/user-attachments/assets/c35b7071-f6c2-4bee-9457-f971ac5e7438" style="max-width: 100%; height: auto; max-height: 673px;; aspect-ratio: 1612 / 673; background-color: var(--bgColor-muted); border-radius: 6px" class="js-gh-image-fallback"></a></p>
+<p>CLS(common language specification)，公共语言规范<br>
+只要所有语言都遵守 CLS 规则，它们写出来的代码编译后都能变成中间语言（IL），所以可以互相调用</p>
+<p>CLI (Common Language Infrastructure)，公共语言基础结构<br>
+整个 .NET运行体系标准，国际工业标准</p>
+<p>CTS (Common Type System)，公共类型系统<br>
+所有 .NET 语言必须遵守的“数据类型统一规则”，CLS是CTS的子级<br>
+int 在所有语言中必须统一：<br>
+System.Int32<br>
+string 必须统一：<br>
+System.String<br>
+bool 必须统一：<br>
+System.Boolean</p>
+<p><strong>如何实现跨平台</strong><br>
+<strong>.Net Framework框架</strong> 2002<br>
+主要用于开发window下的应用程序，部分开源</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/0d997240-c80c-40fd-ae4a-5258140deca2"><img width="1704" height="793" alt="Image" src="https://github.com/user-attachments/assets/0d997240-c80c-40fd-ae4a-5258140deca2" style="max-width: 100%; height: auto; max-height: 793px;; aspect-ratio: 1704 / 793; background-color: var(--bgColor-muted); border-radius: 6px" class="js-gh-image-fallback"></a></p>
+不同语言使用类库--&gt;编译--&gt;生成程序集(.dll(IL 元数据 资源) .exe)--&gt;CLR(负责运行管理)--&gt;JIT(在CLR里面，翻译机器码)--&gt;window
+<p>CLR(common language runtime)，公共语言进行时<br>
+微软写好的代码，用来管理我们写的代码。提供内存、管理线程管理等等核心服务，像小操作系统。被称为‘.Net虚拟机’</p>
+<p><strong>CLR负责：</strong><br>
+加载程序（DLL/EXE）<br>
+管理内存（GC）<br>
+类型系统<br>
+执行流程控制<br>
+决定什么时候需要编译</p>
+<p><strong>.Net Core框架</strong> 2016<br>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/2a828368-491f-405a-9c12-275379fa100c"><img width="1611" height="607" alt="Image" src="https://github.com/user-attachments/assets/2a828368-491f-405a-9c12-275379fa100c" style="max-width: 100%; height: auto; max-height: 607px;; aspect-ratio: 1611 / 607; background-color: var(--bgColor-muted); border-radius: 6px" class="js-gh-image-fallback"></a><br>
+1.把之前的类库拓展成支持多个操作系统的类库<br>
+2.NET Core（现在叫 .NET）提供跨平台运行时（CoreCLR），同一份IL在不同操作系统上运行时，通过不同运行时 + JIT生成对应机器码</p>
+<p><strong>Mono</strong></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/2781fcfe-dcb5-45ac-819e-1b3bed19025e"><img width="1557" height="763" alt="Image" src="https://github.com/user-attachments/assets/2781fcfe-dcb5-45ac-819e-1b3bed19025e" style="max-width: 100%; height: auto; max-height: 763px;; aspect-ratio: 1557 / 763; background-color: var(--bgColor-muted); border-radius: 6px" class="js-gh-image-fallback"></a></p>
+与.Net Core的区别在于，库里面有些mono的公共库
+
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/c409c07c-87ac-4cf7-9583-2878c2eb72b1"><img width="1553" height="736" alt="Image" src="https://github.com/user-attachments/assets/c409c07c-87ac-4cf7-9583-2878c2eb72b1" style="max-width: 100%; height: auto; max-height: 736px;; aspect-ratio: 1553 / 736; background-color: var(--bgColor-muted); border-radius: 6px" class="js-gh-image-fallback"></a></p>
+<p><strong>.Net跨语言和跨平台原理</strong><br>
+<strong>.NET 的跨语言依赖 CLI 体系，包括 CTS 和 CLS。CTS 统一了所有语言的数据类型，CLS 规定语言互通的公共规则，所以不同语言（C#、VB等）最终都会被编译成统一的中间语言 IL，因此可以实现跨语言互操作。</strong></p>
+<p><strong>IL 不能直接被 CPU 执行，需要依赖 .NET 运行时（如 CLR / CoreCLR / Mono）加载程序集并执行。运行时在方法首次执行时通过 JIT 将 IL 即时编译为当前操作系统和 CPU 架构对应的机器码，然后交由 CPU 执行。因此，只要不同平台提供对应实现的 .NET 运行时，就可以运行同一份 IL 程序，就可以实现跨平台。</strong></p>
+<p>补充<br>
+JIT在方法第一次调用时执行</p>
+<p>IL是不是跨平台？<br>
+IL本身是平台无关的中间语言，但它不能直接运行，跨平台能力来自不同平台的 .NET 运行时</p>
+<p>CLR是.NET的运行时，JVM是Java的运行时，它们都负责把中间代码（IL / bytecode）通过JIT转成机器码执行。</p>
+<p>名字：  是什么<br>
+.NET Runtime：  总称（整个运行环境）<br>
+CLR：  .NET Framework 的运行时<br>
+CoreCLR：  .NET Core / .NET 5+ 的运行时<br>
+Mono：  跨平台实现（Unity常用）</p>
+<p>.NET设计IL的原因主要有三个：<br>
+一是为了支持多语言统一，比如C#和VB最后都变成IL；（为什么要IL）<br>
+二是因为CPU只能执行机器码，所以需要运行时调用JIT去做转换；（没有JIT行不行）<br>
+三优化和安全交给运行时。（CLR和操作系统是什么关系）</p></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://linarisx.github.io/lynn.github.io">Lin's Blog</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if(""!=""){
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","linarisx/lynn.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+
+
+</script>
+
+
+</html>
