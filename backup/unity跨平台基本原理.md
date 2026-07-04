@@ -37,3 +37,5 @@ Unity使用IL2CPP实现跨平台时，首先将C#代码编译为IL中间语言�
 主要用来完成GC管理和线程管理等服务工作， 和C#里面的工作点的是一样的。通过模拟c#的垃圾回收机制来管理通过C++编译成的机器码
 
 <img width="1679" height="696" alt="Image" src="https://github.com/user-attachments/assets/75f15bdf-dadf-4f40-b5ea-67a556e9d3f9" />
+
+<img width="1622" height="711" alt="Image" src="https://github.com/user-attachments/assets/26e1a468-3a14-4c06-a8a4-754a6a464420" />
