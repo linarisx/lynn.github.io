@@ -11,12 +11,12 @@
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
 <meta name="description" content="<img width='1615' height='809' alt='Image' src='https://github.com/user-attachments/assets/1607844a-dffd-4dfe-8739-0004eea4d0a9' />
-unity如何利用Mono实现跨平台？
-Unity中C#脚本先被编译成IL中间语言，然后由Mono运行时加载这些程序集。">
+**unity如何利用Mono实现跨平台？**
+**Unity中C#脚本先被编译成IL中间语言，然后由Mono运行时加载这些程序集。">
 <meta property="og:title" content="unity跨平台基本原理">
 <meta property="og:description" content="<img width='1615' height='809' alt='Image' src='https://github.com/user-attachments/assets/1607844a-dffd-4dfe-8739-0004eea4d0a9' />
-unity如何利用Mono实现跨平台？
-Unity中C#脚本先被编译成IL中间语言，然后由Mono运行时加载这些程序集。">
+**unity如何利用Mono实现跨平台？**
+**Unity中C#脚本先被编译成IL中间语言，然后由Mono运行时加载这些程序集。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://linarisx.github.io/lynn.github.io/post/unity-kua-ping-tai-ji-ben-yuan-li.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/206855738?v=4&size=64">
@@ -78,16 +78,16 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
     <div id="content">
 <div class="markdown-body" id="postBody"><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/1607844a-dffd-4dfe-8739-0004eea4d0a9"><img width="1615" height="809" alt="Image" src="https://github.com/user-attachments/assets/1607844a-dffd-4dfe-8739-0004eea4d0a9" style="max-width: 100%; height: auto; max-height: 809px;; aspect-ratio: 1615 / 809; background-color: var(--bgColor-muted); border-radius: 6px" class="js-gh-image-fallback"></a></p>
-unity如何利用Mono实现跨平台？
-Unity中C#脚本先被编译成IL中间语言，然后由Mono运行时加载这些程序集。在运行时，Mono根据不同平台选择JIT或AOT方式将IL转换为当前设备的机器码执行，从而实现跨平台。
-<p>Mono在其中的作用<br>
+**unity如何利用Mono实现跨平台？**
+**Unity中C#脚本先被编译成IL中间语言，然后由Mono运行时加载这些程序集。在运行时，Mono根据不同平台选择JIT或AOT方式将IL转换为当前设备的机器码执行，从而实现跨平台。**
+<p><strong>Mono在其中的作用</strong><br>
 Mono可以理解为 Unity 早期/经典的 .NET 运行时实现，它负责：</p>
-<p>1️⃣ C# → IL（中间语言）<br>
+<p><strong>1️⃣ C# → IL（中间语言）</strong><br>
 你写的 C# 代码会先被编译成：<br>
 IL（Intermediate Language）<br>
 存在于 Assembly-CSharp.dll 之类的程序集里</p>
 <p>这一步是“跨平台的关键”</p>
-<p>2️⃣ Mono Runtime 负责执行 IL<br>
+<p><strong>2️⃣ Mono Runtime 负责执行 IL</strong><br>
 Mono有两种执行方式：<br>
 ✔ JIT（即时编译）<br>
 运行时把 IL 转成当前平台的机器码<br>
