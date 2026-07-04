@@ -1,5 +1,7 @@
 <img width="1615" height="809" alt="Image" src="https://github.com/user-attachments/assets/1607844a-dffd-4dfe-8739-0004eea4d0a9" />
-**unity如何利用Mono实现跨平台？**
+
+### **unity如何利用Mono实现跨平台？**
+
 **Unity中C#脚本先被编译成IL中间语言，然后由Mono运行时加载这些程序集。在运行时，Mono根据不同平台选择JIT或AOT方式将IL转换为当前设备的机器码执行，从而实现跨平台。**
 
 **Mono在其中的作用**
