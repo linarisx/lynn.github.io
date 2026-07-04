@@ -1,3 +1,4 @@
+# Mono
 <img width="1615" height="809" alt="Image" src="https://github.com/user-attachments/assets/1607844a-dffd-4dfe-8739-0004eea4d0a9" />
 
 ### **unity如何利用Mono实现跨平台？**
@@ -23,3 +24,16 @@ Mono有两种执行方式：
 ✔ AOT（提前编译）
 在发布前直接把 IL 编译成机器码
 iOS / 主机平台通常用这个
+
+<img width="1693" height="742" alt="Image" src="https://github.com/user-attachments/assets/e222339b-d56c-422b-94ff-d8f5f91e4699" />
+
+# IL2CPP
+<img width="1740" height="735" alt="Image" src="https://github.com/user-attachments/assets/01e529ad-92d9-488c-a6be-5c198fd81359" />
+
+## uinty是如何利用IL2CPP进行跨平台的
+Unity使用IL2CPP实现跨平台时，首先将C#代码编译为IL中间语言，然后通过IL2CPP工具把IL转换为C++代码，最后由各个平台的原生C++编译器生成对应机器码执行。由于不同平台只需要支持C++编译器，因此实现了一次开发、多平台发布。同时IL2CPP采用AOT方式，避免了JIT限制，提高了安全性和性能。
+
+## 虚拟机的作用
+主要用来完成GC管理和线程管理等服务工作， 和C#里面的工作点的是一样的。通过模拟c#的垃圾回收机制来管理通过C++编译成的机器码
+
+<img width="1679" height="696" alt="Image" src="https://github.com/user-attachments/assets/75f15bdf-dadf-4f40-b5ea-67a556e9d3f9" />
