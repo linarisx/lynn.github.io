@@ -115,9 +115,10 @@ iOS / 主机平台通常用这个</p>
 <h2>IL2CPP执行效率高的原因</h2>
 <ol>
 <li>提前编译AOT，代码提前编译好，不需要边编译边执行</li>
-<li>c++代码比中间语言代码效率高<br>
-<strong>IL2CPP 通常比 Mono 更高效，因为它是 AOT 模式，提前将 IL 编译为本地机器码，避免了 JIT 运行时编译开销，并且可以利用更强的 C++ 编译器优化。但 Mono 在运行时可以做动态优化，因此在某些场景下也可能接近甚至优于 IL2CPP。</strong></li>
-</ol></div>
+<li>c++代码比中间语言代码效率高</li>
+</ol>
+<p><strong>IL2CPP 通常比 Mono 更高效，因为它是 AOT 模式，提前将 IL 编译为本地机器码，避免了 JIT 运行时编译开销，并且可以利用更强的 C++ 编译器优化。但 Mono 在运行时可以做动态优化，因此在某些场景下也可能接近甚至优于 IL2CPP。</strong></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/5413a8a3-b484-42ff-9a9d-0723b55dbe44"><img width="1232" height="439" alt="Image" src="https://github.com/user-attachments/assets/5413a8a3-b484-42ff-9a9d-0723b55dbe44" style="max-width: 100%; height: auto; max-height: 439px;; aspect-ratio: 1232 / 439; background-color: var(--bgColor-muted); border-radius: 6px" class="js-gh-image-fallback"></a></p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>

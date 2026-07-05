@@ -44,4 +44,7 @@ Unity使用IL2CPP实现跨平台时，首先将C#代码编译为IL中间语言�
 ## IL2CPP执行效率高的原因
 1. 提前编译AOT，代码提前编译好，不需要边编译边执行
 2. c++代码比中间语言代码效率高
+
 **IL2CPP 通常比 Mono 更高效，因为它是 AOT 模式，提前将 IL 编译为本地机器码，避免了 JIT 运行时编译开销，并且可以利用更强的 C++ 编译器优化。但 Mono 在运行时可以做动态优化，因此在某些场景下也可能接近甚至优于 IL2CPP。**
+
+<img width="1232" height="439" alt="Image" src="https://github.com/user-attachments/assets/5413a8a3-b484-42ff-9a9d-0723b55dbe44" />
