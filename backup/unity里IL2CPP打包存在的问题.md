@@ -30,3 +30,6 @@ class IL2CPP_Info
     }
 }
 ```
+
+## IL2CPP 模式打包是， 代码剥离可能造成的问题，如何解决
+IL2CPP 是 AOT 模式，Unity 在打包时会进行代码裁剪（Stripping），删除静态分析认为未使用的代码。但反射、字符串调用、泛型实例化等运行时行为无法被静态分析识别，可能导致类或方法被错误剥离，从而出现 MissingMethod 或 Type not found 等问题。解决方法通常是使用 link.xml、[Preserve] 特性或增加显式引用来避免代码被裁剪。
