@@ -111,7 +111,13 @@ iOS / 主机平台通常用这个</p>
 <h2>虚拟机的作用</h2>
 <p>主要用来完成GC管理和线程管理等服务工作， 和C#里面的工作点的是一样的。通过模拟c#的垃圾回收机制来管理通过C++编译成的机器码</p>
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/75f15bdf-dadf-4f40-b5ea-67a556e9d3f9"><img width="1679" height="696" alt="Image" src="https://github.com/user-attachments/assets/75f15bdf-dadf-4f40-b5ea-67a556e9d3f9" style="max-width: 100%; height: auto; max-height: 696px;; aspect-ratio: 1679 / 696; background-color: var(--bgColor-muted); border-radius: 6px" class="js-gh-image-fallback"></a></p>
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/26e1a468-3a14-4c06-a8a4-754a6a464420"><img width="1622" height="711" alt="Image" src="https://github.com/user-attachments/assets/26e1a468-3a14-4c06-a8a4-754a6a464420" style="max-width: 100%; height: auto; max-height: 711px;; aspect-ratio: 1622 / 711; background-color: var(--bgColor-muted); border-radius: 6px" class="js-gh-image-fallback"></a></p></div>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/26e1a468-3a14-4c06-a8a4-754a6a464420"><img width="1622" height="711" alt="Image" src="https://github.com/user-attachments/assets/26e1a468-3a14-4c06-a8a4-754a6a464420" style="max-width: 100%; height: auto; max-height: 711px;; aspect-ratio: 1622 / 711; background-color: var(--bgColor-muted); border-radius: 6px" class="js-gh-image-fallback"></a></p>
+<h2>IL2CPP执行效率高的原因</h2>
+<ol>
+<li>提前编译AOT，代码提前编译好，不需要边编译边执行</li>
+<li>c++代码比中间语言代码效率高<br>
+<strong>IL2CPP 通常比 Mono 更高效，因为它是 AOT 模式，提前将 IL 编译为本地机器码，避免了 JIT 运行时编译开销，并且可以利用更强的 C++ 编译器优化。但 Mono 在运行时可以做动态优化，因此在某些场景下也可能接近甚至优于 IL2CPP。</strong></li>
+</ol></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>

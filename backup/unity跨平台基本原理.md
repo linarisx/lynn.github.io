@@ -27,6 +27,7 @@ iOS / 主机平台通常用这个
 
 <img width="1693" height="742" alt="Image" src="https://github.com/user-attachments/assets/e222339b-d56c-422b-94ff-d8f5f91e4699" />
 
+
 # IL2CPP
 <img width="1740" height="735" alt="Image" src="https://github.com/user-attachments/assets/01e529ad-92d9-488c-a6be-5c198fd81359" />
 
@@ -39,3 +40,8 @@ Unity使用IL2CPP实现跨平台时，首先将C#代码编译为IL中间语言�
 <img width="1679" height="696" alt="Image" src="https://github.com/user-attachments/assets/75f15bdf-dadf-4f40-b5ea-67a556e9d3f9" />
 
 <img width="1622" height="711" alt="Image" src="https://github.com/user-attachments/assets/26e1a468-3a14-4c06-a8a4-754a6a464420" />
+
+## IL2CPP执行效率高的原因
+1. 提前编译AOT，代码提前编译好，不需要边编译边执行
+2. c++代码比中间语言代码效率高
+**IL2CPP 通常比 Mono 更高效，因为它是 AOT 模式，提前将 IL 编译为本地机器码，避免了 JIT 运行时编译开销，并且可以利用更强的 C++ 编译器优化。但 Mono 在运行时可以做动态优化，因此在某些场景下也可能接近甚至优于 IL2CPP。**
