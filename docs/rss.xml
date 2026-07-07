@@ -1,5 +1,57 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Blog</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Sun, 05 Jul 2026 19:59:14 +0000</lastBuildDate><managingEditor>Lin's Blog</managingEditor><ttl>60</ttl><webMaster>Lin's Blog</webMaster><item><title>unity里IL2CPP打包存在的问题</title><link>https://linarisx.github.io/lynn.github.io/post/unity-li-IL2CPP-da-bao-cun-zai-de-wen-ti.html</link><description>&lt;img width='1350' height='372' alt='Image' src='https://github.com/user-attachments/assets/3ba8a3b7-2de6-4f81-865c-e5dc5e0a6060' /&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lin's Blog</title><link>https://linarisx.github.io/lynn.github.io</link><description>Welcome to my blog, where I share my learning and practical experiences in game development</description><copyright>Lin's Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/206855738?v=4&amp;size=64</url><title>avatar</title><link>https://linarisx.github.io/lynn.github.io</link></image><lastBuildDate>Tue, 07 Jul 2026 00:17:30 +0000</lastBuildDate><managingEditor>Lin's Blog</managingEditor><ttl>60</ttl><webMaster>Lin's Blog</webMaster><item><title>命名和可选参数 动态类型等</title><link>https://linarisx.github.io/lynn.github.io/post/ming-ming-he-ke-xuan-can-shu-%20-dong-tai-lei-xing-deng.html</link><description>&lt;img width='781' height='410' alt='Image' src='https://github.com/user-attachments/assets/aa6e73d2-52f4-42aa-9dca-159fe12ff465' /&gt;
+
+&lt;img width='1084' height='667' alt='Image' src='https://github.com/user-attachments/assets/8c2ab749-48f7-44ca-ae91-a60afffd1cc4' /&gt;
+
+# 命名和可选参数
+``` c#
+Test(i: 1, j: 1.2f, str: '123');
+Test1(i: 2, str: '3');//跳过其中的默认参数
+void Test(int i, float j, string str)
+{
+
+}
+void Test1(int i, float j = 1, string str = '2')
+{
+
+}
+```
+
+# 动态类型
+``` c#
+class Test1
+{
+    public void TestTest()
+    {
+
+    }
+}
+class Test2
+{
+    public void TestTest()
+    {
+
+    }
+}
+public class L3
+{
+    void Start()
+    {
+        dynamic dyn = 1;
+        object obj = 2;
+        print(obj.GetType());
+        print(dyn.GetType());
+        dyn += 1;
+        print(dyn);//3
+
+        //在确认对象成员 但是不确定类型时 使用
+        object o = new Test1();
+        (o as Test1).TestTest();
+        dynamic d = o;
+        d.TestTest();//避免反射/类型转换等
+    }
+}
+```。</description><guid isPermaLink="true">https://linarisx.github.io/lynn.github.io/post/ming-ming-he-ke-xuan-can-shu-%20-dong-tai-lei-xing-deng.html</guid><pubDate>Tue, 07 Jul 2026 00:17:03 +0000</pubDate></item><item><title>unity里IL2CPP打包存在的问题</title><link>https://linarisx.github.io/lynn.github.io/post/unity-li-IL2CPP-da-bao-cun-zai-de-wen-ti.html</link><description>&lt;img width='1350' height='372' alt='Image' src='https://github.com/user-attachments/assets/3ba8a3b7-2de6-4f81-865c-e5dc5e0a6060' /&gt;
 
 &lt;img width='1408' height='531' alt='Image' src='https://github.com/user-attachments/assets/25b7c934-24ac-474f-be68-c82f3d03e461' /&gt;
 
